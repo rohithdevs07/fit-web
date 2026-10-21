@@ -1,4651 +1,864 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="Rohith Kanagaraj - Backend & Software Developer">
-
-    <title>
-       < / > Rohith | Developer
-    </title>
-
-
-
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
-
-
-    <!-- =========================
-         CSS
-    ========================== -->
-
-    <style>
-
-       
-
-        :root {
-
-            --bg: #050505;
-            --bg2: #0a0a0a;
-            --card: #101010;
-
-            --white: #f5f5f5;
-
-            --gray: #888;
-
-            --gray2: #555;
-
-            --border:
-                rgba(255,255,255,0.10);
-
-            --heading:
-                "Space Grotesk",
-                sans-serif;
-
-            --font:
-                "Inter",
-                sans-serif;
-
-            --max:
-                1250px;
-        }
-
-
-        * {
-
-            margin: 0;
-
-            padding: 0;
-
-            box-sizing: border-box;
-        }
-
-
-        html {
-
-            scroll-behavior: smooth;
-        }
-
-
-        body {
-
-            background:
-                var(--bg);
-
-            color:
-                var(--white);
-
-            font-family:
-                var(--font);
-
-            overflow-x:
-                hidden;
-        }
-
-
-        a {
-
-            color:
-                inherit;
-
-            text-decoration:
-                none;
-        }
-
-
-        button,
-        input,
-        textarea {
-
-            font-family:
-                inherit;
-        }
-
-
-        ::-webkit-scrollbar {
-
-            width:
-                7px;
-        }
-
-
-        ::-webkit-scrollbar-track {
-
-            background:
-                #000;
-        }
-
-
-        ::-webkit-scrollbar-thumb {
-
-            background:
-                #444;
-        }
-
-
-
-
-        .navbar {
-
-            position:
-                fixed;
-
-            top:
-                0;
-
-            left:
-                0;
-
-            width:
-                100%;
-
-            z-index:
-                1000;
-
-            background:
-                rgba(5,5,5,0.8);
-
-            backdrop-filter:
-                blur(20px);
-
-            border-bottom:
-                1px solid var(--border);
-        }
-
-
-        .nav-container {
-
-            max-width:
-                var(--max);
-
-            height:
-                80px;
-
-            margin:
-                auto;
-
-            padding:
-                0 30px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-        }
-
-
-        .logo {
-
-            font-family:
-                var(--heading);
-
-            font-size:
-                26px;
-
-            font-weight:
-                700;
-
-            letter-spacing:
-                -1px;
-        }
-
-
-        .logo span {
-
-            color:
-                #777;
-        }
-
-
-        .nav-links {
-
-            display:
-                flex;
-
-            gap:
-                30px;
-        }
-
-
-        .nav-links a {
-
-            font-size:
-                11px;
-
-            color:
-                #888;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                1px;
-
-            transition:
-                0.3s;
-        }
-
-
-        .nav-links a:hover {
-
-            color:
-                white;
-        }
-
-
-        .nav-button {
-
-            border:
-                1px solid #444;
-
-            padding:
-                11px 20px;
-
-            font-size:
-                11px;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                1px;
-
-            transition:
-                0.3s;
-        }
-
-
-        .nav-button:hover {
-
-            background:
-                white;
-
-            color:
-                black;
-        }
-
-
-        .menu-button {
-
-            display:
-                none;
-
-            background:
-                transparent;
-
-            border:
-                0;
-
-            color:
-                white;
-
-            font-size:
-                24px;
-
-            cursor:
-                pointer;
-        }
-
-
-
-        .hero {
-
-            min-height:
-                100vh;
-
-            position:
-                relative;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-        }
-
-
-        .hero-bg {
-
-            position:
-                absolute;
-
-            inset:
-                0;
-
-            background:
-
-                radial-gradient(
-                    circle at 75% 40%,
-                    rgba(255,255,255,0.07),
-                    transparent 30%
-                ),
-
-                radial-gradient(
-                    circle at 10% 80%,
-                    rgba(255,255,255,0.04),
-                    transparent 30%
-                );
-        }
-
-
-        .hero-container {
-
-            position:
-                relative;
-
-            z-index:
-                2;
-
-            width:
-                100%;
-
-            max-width:
-                var(--max);
-
-            margin:
-                auto;
-
-            padding:
-                130px 30px 80px;
-
-            display:
-                grid;
-
-            grid-template-columns:
-                1.1fr 0.9fr;
-
-            gap:
-                80px;
-
-            align-items:
-                center;
-        }
-
-
-        .hero-small {
-
-            color:
-                #666;
-
-            font-size:
-                11px;
-
-            letter-spacing:
-                4px;
-
-            margin-bottom:
-                20px;
-        }
-
-
-        .hero h1 {
-
-            font-family:
-                var(--heading);
-
-            font-size:
-                clamp(55px, 8vw, 110px);
-
-            line-height:
-                0.88;
-
-            letter-spacing:
-                -6px;
-
-            margin-bottom:
-                30px;
-        }
-
-
-        .hero h1 span {
-
-            display:
-                block;
-
-            color:
-                #666;
-        }
-
-
-        .hero-role {
-
-            min-height:
-                35px;
-
-            font-size:
-                22px;
-
-            font-weight:
-                500;
-
-            margin-bottom:
-                20px;
-        }
-
-
-        .cursor {
-
-            animation:
-                blink 0.8s infinite;
-
-            color:
-                #777;
-        }
-
-
-        @keyframes blink {
-
-            0%,50% {
-
-                opacity:
-                    1;
-            }
-
-            51%,100% {
-
-                opacity:
-                    0;
-            }
-        }
-
-
-        .hero-description {
-
-            max-width:
-                600px;
-
-            color:
-                var(--gray);
-
-            line-height:
-                1.8;
-
-            font-size:
-                15px;
-
-            margin-bottom:
-                35px;
-        }
-
-
-        .hero-buttons {
-
-            display:
-                flex;
-
-            gap:
-                15px;
-
-            flex-wrap:
-                wrap;
-        }
-
-
-        .primary-button {
-
-            display:
-                inline-flex;
-
-            align-items:
-                center;
-
-            gap:
-                15px;
-
-            background:
-                white;
-
-            color:
-                black;
-
-            border:
-                1px solid white;
-
-            padding:
-                15px 22px;
-
-            font-size:
-                12px;
-
-            font-weight:
-                600;
-
-            cursor:
-                pointer;
-
-            transition:
-                0.3s;
-        }
-
-
-        .primary-button:hover {
-
-            background:
-                transparent;
-
-            color:
-                white;
-        }
-
-
-        .secondary-button {
-
-            padding:
-                15px 22px;
-
-            border:
-                1px solid #444;
-
-            font-size:
-                12px;
-
-            transition:
-                0.3s;
-        }
-
-
-        .secondary-button:hover {
-
-            border-color:
-                white;
-        }
-
-
-
-        
-
-        .code-window {
-
-            background:
-                #0b0b0b;
-
-            border:
-                1px solid #242424;
-
-            box-shadow:
-                0 40px 100px
-                rgba(0,0,0,0.5);
-
-            transform:
-                rotate(2deg);
-
-            transition:
-                0.5s;
-        }
-
-
-        .code-window:hover {
-
-            transform:
-                rotate(0deg)
-                translateY(-10px);
-        }
-
-
-        .window-header {
-
-            height:
-                45px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            padding:
-                0 15px;
-
-            position:
-                relative;
-
-            border-bottom:
-                1px solid #222;
-        }
-
-
-        .window-header p {
-
-            position:
-                absolute;
-
-            left:
-                50%;
-
-            transform:
-                translateX(-50%);
-
-            color:
-                #666;
-
-            font-size:
-                11px;
-        }
-
-
-        .window-dots {
-
-            display:
-                flex;
-
-            gap:
-                6px;
-        }
-
-
-        .window-dots span {
-
-            width:
-                8px;
-
-            height:
-                8px;
-
-            background:
-                #444;
-
-            border-radius:
-                50%;
-        }
-
-
-        .code-content {
-
-            padding:
-                30px;
-
-            overflow-x:
-                auto;
-        }
-
-
-        .code-content pre {
-
-            font-family:
-                monospace;
-
-            font-size:
-                13px;
-
-            line-height:
-                2;
-
-            color:
-                #aaa;
-        }
-
-
-        .purple {
-
-            color:
-                #c792ea;
-        }
-
-
-        .blue {
-
-            color:
-                #82aaff;
-        }
-
-
-        .green {
-
-            color:
-                #c3e88d;
-        }
-
-
-
-        /* =========================
-           SCROLL INDICATOR
-        ========================== */
-
-        .scroll-indicator {
-
-            position:
-                absolute;
-
-            bottom:
-                30px;
-
-            left:
-                50%;
-
-            transform:
-                translateX(-50%);
-
-            display:
-                flex;
-
-            flex-direction:
-                column;
-
-            align-items:
-                center;
-
-            gap:
-                10px;
-
-            color:
-                #555;
-
-            font-size:
-                8px;
-
-            letter-spacing:
-                2px;
-        }
-
-
-        .scroll-line {
-
-            height:
-                45px;
-
-            width:
-                1px;
-
-            background:
-                linear-gradient(
-                    to bottom,
-                    #777,
-                    transparent
-                );
-        }
-
-
-
-      
-        .section {
-
-            padding:
-                140px 0;
-
-            border-top:
-                1px solid var(--border);
-        }
-
-
-        .container {
-
-            max-width:
-                var(--max);
-
-            margin:
-                auto;
-
-            padding:
-                0 30px;
-        }
-
-
-        .section-heading {
-
-            margin-bottom:
-                80px;
-        }
-
-
-        .section-number {
-
-            font-size:
-                10px;
-
-            color:
-                #666;
-
-            letter-spacing:
-                3px;
-
-            margin-bottom:
-                20px;
-        }
-
-
-        .section-heading h2 {
-
-            font-family:
-                var(--heading);
-
-            font-size:
-                clamp(45px,6vw,80px);
-
-            line-height:
-                0.95;
-
-            letter-spacing:
-                -4px;
-        }
-
-
-        .section-heading h2 span {
-
-            display:
-                block;
-
-            color:
-                #555;
-        }
-
-
-        .heading-description {
-
-            max-width:
-                500px;
-
-            color:
-                #777;
-
-            line-height:
-                1.7;
-
-            margin-top:
-                25px;
-        }
-
-
-
-
-        .about-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap:
-                100px;
-        }
-
-
-        .about-text p {
-
-            color:
-                #888;
-
-            line-height:
-                1.9;
-
-            margin-bottom:
-                25px;
-        }
-
-
-        .about-text .large-text {
-
-            color:
-                white;
-
-            font-size:
-                24px;
-
-            line-height:
-                1.5;
-        }
-
-
-        .about-text strong {
-
-            color:
-                white;
-        }
-
-
-        .about-stats {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap:
-                15px;
-        }
-
-
-        .stat-card {
-
-            padding:
-                30px;
-
-            background:
-                #0b0b0b;
-
-            border:
-                1px solid var(--border);
-
-            transition:
-                0.3s;
-        }
-
-
-        .stat-card:hover {
-
-            transform:
-                translateY(-5px);
-
-            border-color:
-                #555;
-        }
-
-
-        .stat-card > span {
-
-            color:
-                #555;
-
-            font-size:
-                11px;
-        }
-
-
-        .stat-card h3 {
-
-            font-family:
-                var(--heading);
-
-            font-size:
-                23px;
-
-            margin-top:
-                30px;
-        }
-
-
-        .stat-card p {
-
-            color:
-                #777;
-
-            font-size:
-                13px;
-
-            line-height:
-                1.6;
-
-            margin-top:
-                10px;
-        }
-
-
-
-
-        .skills-section {
-
-            background:
-                #090909;
-        }
-
-
-        .skills-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(3,1fr);
-
-            gap:
-                20px;
-        }
-
-
-        .skill-category {
-
-            min-height:
-                280px;
-
-            padding:
-                30px;
-
-            background:
-                #0d0d0d;
-
-            border:
-                1px solid var(--border);
-
-            transition:
-                0.3s;
-        }
-
-
-        .skill-category:hover {
-
-            transform:
-                translateY(-5px);
-
-            border-color:
-                #555;
-        }
-
-
-        .category-number {
-
-            color:
-                #555;
-
-            font-size:
-                11px;
-
-            margin-bottom:
-                45px;
-        }
-
-
-        .skill-category h3 {
-
-            font-family:
-                var(--heading);
-
-            font-size:
-                24px;
-
-            margin-bottom:
-                25px;
-        }
-
-
-        .skill-list {
-
-            display:
-                flex;
-
-            flex-direction:
-                column;
-
-            gap:
-                14px;
-        }
-
-
-        .skill {
-
-            display:
-                flex;
-
-            justify-content:
-                space-between;
-
-            padding-bottom:
-                12px;
-
-            border-bottom:
-                1px solid #202020;
-        }
-
-
-        .skill span {
-
-            font-size:
-                13px;
-        }
-
-
-        .skill small {
-
-            color:
-                #555;
-
-            font-size:
-                9px;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                1px;
-        }
-
-
-
-
-        .backend-section {
-
-            padding:
-                150px 0;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #111,
-                    #050505,
-                    #0e0e0e
-                );
-        }
-
-
-        .backend-content {
-
-            max-width:
-                1100px;
-        }
-
-
-        .backend-content h2 {
-
-            font-family:
-                var(--heading);
-
-            font-size:
-                clamp(45px,7vw,90px);
-
-            line-height:
-                0.95;
-
-            letter-spacing:
-                -5px;
-        }
-
-
-        .backend-content h2 span {
-
-            display:
-                block;
-
-            color:
-                #555;
-        }
-
-
-        .backend-content > p {
-
-            max-width:
-                650px;
-
-            color:
-                #777;
-
-            line-height:
-                1.8;
-
-            margin-top:
-                30px;
-        }
-
-
-        .backend-points {
-
-            margin-top:
-                80px;
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(3,1fr);
-
-            gap:
-                30px;
-        }
-
-
-        .backend-points div {
-
-            border-top:
-                1px solid #333;
-
-            padding-top:
-                20px;
-        }
-
-
-        .backend-points span {
-
-            color:
-                #555;
-
-            font-size:
-                11px;
-        }
-
-
-        .backend-points h3 {
-
-            font-family:
-                var(--heading);
-
-            font-size:
-                22px;
-
-            margin-top:
-                30px;
-        }
-
-
-        .backend-points p {
-
-            color:
-                #777;
-
-            line-height:
-                1.7;
-
-            font-size:
-                13px;
-
-            margin-top:
-                10px;
-        }
-
-
-
-        /* =========================
-           PROJECTS
-        ========================== */
-
-        .projects-section {
-
-            background:
-                #070707;
-        }
-
-
-        .projects-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(3,1fr);
-
-            gap:
-                20px;
-        }
-
-
-        .project-card {
-
-            min-height:
-                450px;
-
-            padding:
-                30px;
-
-            background:
-                #0c0c0c;
-
-            border:
-                1px solid var(--border);
-
-            display:
-                flex;
-
-            flex-direction:
-                column;
-
-            transition:
-                0.4s;
-        }
-
-
-        .project-card:hover {
-
-            transform:
-                translateY(-8px);
-
-            border-color:
-                #555;
-        }
-
-
-        .project-top {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-        }
-
-
-        .project-number {
-
-            color:
-                #555;
-
-            font-size:
-                11px;
-        }
-
-
-        .project-status {
-
-            color:
-                #666;
-
-            border:
-                1px solid #333;
-
-            padding:
-                6px 8px;
-
-            font-size:
-                8px;
-
-            letter-spacing:
-                1px;
-        }
-
-
-        .project-card h3 {
-
-            font-family:
-                var(--heading);
-
-            font-size:
-                27px;
-
-            margin-top:
-                60px;
-        }
-
-
-        .project-card > p {
-
-            color:
-                #777;
-
-            font-size:
-                13px;
-
-            line-height:
-                1.7;
-
-            margin-top:
-                15px;
-        }
-
-
-        .project-tech {
-
-            display:
-                flex;
-
-            flex-wrap:
-                wrap;
-
-            gap:
-                8px;
-
-            margin-top:
-                auto;
-
-            padding-top:
-                40px;
-        }
-
-
-        .project-tech span {
-
-            color:
-                #999;
-
-            border:
-                1px solid #333;
-
-            padding:
-                7px 10px;
-
-            font-size:
-                9px;
-        }
-
-
-        .project-links {
-
-            display:
-                flex;
-
-            gap:
-                20px;
-
-            margin-top:
-                30px;
-
-            padding-top:
-                20px;
-
-            border-top:
-                1px solid #222;
-        }
-
-
-        .project-links a {
-
-            color:
-                #888;
-
-            font-size:
-                10px;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                1px;
-
-            transition:
-                0.3s;
-        }
-
-
-        .project-links a:hover {
-
-            color:
-                white;
-        }
-
-
-        .project-note {
-
-            margin-top:
-                30px;
-
-            padding:
-                25px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                20px;
-
-            color:
-                #666;
-
-            border:
-                1px dashed #333;
-        }
-
-
-        .project-note span {
-
-            font-size:
-                25px;
-        }
-
-
-
-        .journey-section {
-
-            background:
-                #090909;
-        }
-
-
-        .timeline {
-
-            max-width:
-                950px;
-        }
-
-
-        .timeline-item {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                100px 1fr;
-
-            gap:
-                50px;
-
-            padding:
-                50px 0;
-
-            border-top:
-                1px solid #222;
-        }
-
-
-        .timeline-number {
-
-            color:
-                #555;
-
-            font-size:
-                11px;
-        }
-
-
-        .timeline-label {
-
-            color:
-                #555;
-
-            font-size:
-                9px;
-
-            letter-spacing:
-                3px;
-
-            margin-bottom:
-                15px;
-        }
-
-
-        .timeline-content h3 {
-
-            font-family:
-                var(--heading);
-
-            font-size:
-                30px;
-        }
-
-
-        .timeline-content p:last-child {
-
-            max-width:
-                650px;
-
-            color:
-                #777;
-
-            line-height:
-                1.7;
-
-            margin-top:
-                15px;
-        }
-
-
-
-        
-
-        .contact-section {
-
-            padding:
-                150px 0;
-
-            background:
-                #050505;
-
-            border-top:
-                1px solid var(--border);
-        }
-
-
-        .contact-wrapper {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap:
-                100px;
-        }
-
-
-        .contact-heading h2 {
-
-            font-family:
-                var(--heading);
-
-            font-size:
-                clamp(50px,7vw,90px);
-
-            line-height:
-                0.9;
-
-            letter-spacing:
-                -5px;
-        }
-
-
-        .contact-heading h2 span {
-
-            display:
-                block;
-
-            color:
-                #555;
-        }
-
-
-        .contact-heading > p:last-child {
-
-            max-width:
-                450px;
-
-            color:
-                #777;
-
-            line-height:
-                1.8;
-
-            margin-top:
-                30px;
-        }
-
-
-        .contact-details {
-
-            display:
-                flex;
-
-            flex-direction:
-                column;
-        }
-
-
-        .contact-item {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                45px 1fr 20px;
-
-            gap:
-                15px;
-
-            align-items:
-                center;
-
-            padding:
-                20px 0;
-
-            border-bottom:
-                1px solid #222;
-
-            transition:
-                0.3s;
-        }
-
-
-        .contact-item:hover {
-
-            padding-left:
-                10px;
-        }
-
-
-        .contact-icon {
-
-            width:
-                35px;
-
-            height:
-                35px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            border:
-                1px solid #333;
-
-            font-size:
-                9px;
-        }
-
-
-        .contact-item small {
-
-            display:
-                block;
-
-            color:
-                #555;
-
-            font-size:
-                8px;
-
-            letter-spacing:
-                2px;
-
-            margin-bottom:
-                5px;
-        }
-
-
-        .contact-item span {
-
-            color:
-                #aaa;
-
-            font-size:
-                13px;
-        }
-
-
-        .contact-item strong {
-
-            color:
-                #555;
-        }
-
-
-
-        .contact-form {
-
-            max-width:
-                900px;
-
-            margin-top:
-                100px;
-
-            padding-top:
-                60px;
-
-            border-top:
-                1px solid #222;
-        }
-
-
-        .contact-form h3 {
-
-            font-family:
-                var(--heading);
-
-            font-size:
-                30px;
-
-            margin-bottom:
-                40px;
-        }
-
-
-        .form-row {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap:
-                20px;
-        }
-
-
-        .input-group {
-
-            margin-bottom:
-                25px;
-        }
-
-
-        .input-group label {
-
-            display:
-                block;
-
-            color:
-                #666;
-
-            font-size:
-                9px;
-
-            letter-spacing:
-                2px;
-
-            text-transform:
-                uppercase;
-
-            margin-bottom:
-                10px;
-        }
-
-
-        .input-group input,
-        .input-group textarea {
-
-            width:
-                100%;
-
-            background:
-                transparent;
-
-            color:
-                white;
-
-            border:
-                none;
-
-            border-bottom:
-                1px solid #333;
-
-            padding:
-                14px 0;
-
-            outline:
-                none;
-
-            font-size:
-                14px;
-
-            transition:
-                0.3s;
-        }
-
-
-        .input-group input:focus,
-        .input-group textarea:focus {
-
-            border-color:
-                white;
-        }
-
-
-        .input-group input::placeholder,
-        .input-group textarea::placeholder {
-
-            color:
-                #444;
-        }
-
-
-        #formMessage {
-
-            color:
-                #777;
-
-            font-size:
-                12px;
-
-            margin-top:
-                20px;
-        }
-
-
-        footer {
-
-            padding:
-                60px 0;
-
-            background:
-                #030303;
-
-            border-top:
-                1px solid #1a1a1a;
-        }
-
-
-        .footer-container {
-
-            max-width:
-                var(--max);
-
-            margin:
-                auto;
-
-            padding:
-                0 30px;
-
-            display:
-                grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap:
-                50px;
-        }
-
-
-        .footer-brand p {
-
-            color:
-                #555;
-
-            font-size:
-                11px;
-
-            line-height:
-                1.7;
-
-            margin-top:
-                15px;
-        }
-
-
-        .footer-links {
-
-            display:
-                flex;
-
-            justify-content:
-                flex-end;
-
-            gap:
-                25px;
-        }
-
-
-        .footer-links a {
-
-            color:
-                #666;
-
-            font-size:
-                10px;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                1px;
-        }
-
-
-        .footer-links a:hover {
-
-            color:
-                white;
-        }
-
-
-        .footer-bottom {
-
-            grid-column:
-                1 / -1;
-
-            padding-top:
-                30px;
-
-            border-top:
-                1px solid #151515;
-
-            display:
-                flex;
-
-            justify-content:
-                space-between;
-
-            color:
-                #444;
-
-            font-size:
-                9px;
-        }
-
-
-
-        .reveal {
-
-            opacity:
-                0;
-
-            transform:
-                translateY(40px);
-
-            transition:
-                opacity 0.8s ease,
-                transform 0.8s ease;
-        }
-
-
-        .reveal.active {
-
-            opacity:
-                1;
-
-            transform:
-                translateY(0);
-        }
-
-
-
-
-        @media (max-width:1000px) {
-
-            .hero-container {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-
-            .code-window {
-
-                max-width:
-                    700px;
-            }
-
-
-            .about-grid {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-
-            .skills-grid {
-
-                grid-template-columns:
-                    repeat(2,1fr);
-            }
-
-
-            .projects-grid {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-
-            .backend-points {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-
-            .contact-wrapper {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-        }
-
-
-        @media (max-width:700px) {
-
-            .nav-links,
-            .nav-button {
-
-                display:
-                    none;
-            }
-
-
-            .menu-button {
-
-                display:
-                    block;
-            }
-
-
-            .nav-links.mobile-active {
-
-                display:
-                    flex;
-
-                position:
-                    absolute;
-
-                top:
-                    80px;
-
-                left:
-                    0;
-
-                width:
-                    100%;
-
-                padding:
-                    30px;
-
-                flex-direction:
-                    column;
-
-                background:
-                    #080808;
-
-                border-bottom:
-                    1px solid #222;
-            }
-
-
-            .hero-container {
-
-                padding-top:
-                    130px;
-            }
-
-
-            .hero h1 {
-
-                font-size:
-                    60px;
-
-                letter-spacing:
-                    -4px;
-            }
-
-
-            .code-window {
-
-                transform:
-                    none;
-            }
-
-
-            .section {
-
-                padding:
-                    100px 0;
-            }
-
-
-            .section-heading {
-
-                margin-bottom:
-                    50px;
-            }
-
-
-            .skills-grid {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-
-            .about-stats {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-
-            .form-row {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-
-            .timeline-item {
-
-                grid-template-columns:
-                    50px 1fr;
-
-                gap:
-                    20px;
-            }
-
-
-            .footer-container {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-
-            .footer-links {
-
-                justify-content:
-                    flex-start;
-
-                flex-wrap:
-                    wrap;
-            }
-
-
-            .footer-bottom {
-
-                grid-column:
-                    auto;
-
-                flex-direction:
-                    column;
-
-                gap:
-                    10px;
-            }
-
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> GET DONE| Your Body. Your Mission.</title>
+<style>
+/* ========== APEX FITNESS THEME ========== */
+:root {
+  --bg: #090b0a;
+  --panel: #121613;
+  --panel2: #191e1a;
+  --line: #000000;
+  --lime: #9209fb;
+  --text: #eef0eb;
+  --muted: #fdf9f9;
+  --red: #6a6a6a;
+  --radius: 18px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, Arial, sans-serif;
+}
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 2px;
+}
+button:disabled { opacity: .5; cursor: not-allowed; }
+a { color: inherit; text-decoration: none; }
+header {
+  height: 76px;
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  background: rgba(9,11,10,.94);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(15px);
+}
+.brand { font-weight: 900; letter-spacing: 1.5px; font-size: 21px; }
+.brand span { color: var(--lime); }
+.brand small { display: block; color: var(--muted); font-size: 9px; letter-spacing: 3px; margin-top: 3px; }
+nav { display: flex; gap: 7px; flex-wrap: wrap; }
+nav button {
+  color: var(--muted); background: transparent; border: 0;
+  padding: 10px 13px; border-radius: 9px; font-size: 13px;
+}
+nav button.active, nav button:hover { background: var(--panel2); color: var(--lime); }
+.wrap { max-width: 1240px; padding: 30px 22px 60px; margin: auto; }
+.page { display: none; }
+.page.active { display: block; animation: appear .25s ease; }
+@keyframes appear { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+.eyebrow { color: var(--lime); font-size: 11px; letter-spacing: 3px; font-weight: 800; text-transform: uppercase; }
+h1 { font-size: clamp(35px, 5vw, 62px); line-height: 1.02; margin: 17px 0; letter-spacing: -2px; }
+h1 span, h2 span { color: var(--lime); }
+h2 { font-size: 27px; letter-spacing: -.6px; margin: 0 0 9px; }
+h3 { font-size: 16px; margin: 0 0 12px; }
+p { color: var(--muted); line-height: 1.7; font-size: 14px; }
+.hero {
+  min-height: 340px; padding: clamp(24px, 5vw, 58px);
+  border: 1px solid var(--line); border-radius: 25px;
+  background: radial-gradient(ellipse at 95% 10%, #393939 0, transparent 38%),
+              linear-gradient(130deg,#151a15,#494949 65%);
+  display: flex; align-items: center; justify-content: space-between; gap: 30px;
+}
+.hero-content { max-width: 650px; }
+.hero p { max-width: 540px; }
+.hero-art { font-size: clamp(75px, 12vw, 145px); filter: drop-shadow(0 0 30px #c5ff5522); }
+.btn {
+  display: inline-flex; justify-content: center; align-items: center;
+  padding: 12px 17px; border: 1px solid var(--line);
+  background: var(--panel2); color: var(--text); border-radius: 10px;
+  font-size: 13px; font-weight: 750; margin: 5px 4px 5px 0;
+}
+.btn.primary { background: var(--lime); border-color: var(--lime); color: #10140b; }
+.btn:hover { transform: translateY(-1px); filter: brightness(1.08); }
+.grid { display: grid; gap: 16px; }
+.grid-2 { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.grid-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.grid-4 { grid-template-columns: repeat(4,minmax(0,1fr)); }
+.card {
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 22px; min-width: 0;
+}
+.section-head { display:flex; justify-content:space-between; align-items:end; gap: 15px; margin: 32px 0 16px; }
+.section-head p { margin: 5px 0 0; }
+.metric { font-size: 31px; font-weight: 850; margin: 12px 0 4px; letter-spacing: -.8px; }
+.metric small { color: var(--muted); font-size: 12px; font-weight: 500; letter-spacing: 0; }
+.muted { color: var(--muted); font-size: 12px; }
+.lime { color: var(--lime); }
+hr { border: 0; border-top: 1px solid var(--line); margin: 18px 0; }
+label { display: block; font-size: 12px; color: #c6c8c6; margin: 12px 0 7px; }
+input, select, textarea {
+  width: 100%; color: var(--text); background: #0c100d;
+  border: 1px solid #30392e; padding: 12px; border-radius: 9px;
+}
+select option { background: #121613; }
+input[type=checkbox] { width: auto; accent-color: var(--lime); }
+.result { background: #1c2716; border: 1px solid #494a49; padding: 15px; border-radius: 12px; margin-top: 14px; }
+.progress { height: 7px; background: #545554; border-radius: 20px; overflow: hidden; margin: 10px 0; }
+.progress div { height: 100%; background: var(--lime); border-radius: 20px; transition: width .25s; }
+.pill { display: inline-block; padding: 5px 9px; border-radius: 20px; background: #cccccc; color: var(--lime); font-size: 11px; }
+.food-row, .exercise-row, .log-row {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 12px; border-bottom: 1px solid var(--line); padding: 13px 0;
+}
+.food-row:last-child, .exercise-row:last-child, .log-row:last-child { border: 0; }
+.food-row strong, .exercise-row strong { font-size: 13px; }
+.food-row small, .exercise-row small { display: block; color: var(--muted); font-size: 11px; margin-top: 5px; }
+.food-row .btn { padding: 8px 11px; }
+.macro { display: flex; justify-content: space-between; gap: 10px; font-size: 12px; margin-top: 12px; }
+.two-inputs { display:grid; grid-template-columns:1fr 1fr; gap: 12px; }
+.list { padding-left: 20px; color: var(--muted); font-size: 13px; line-height: 2; }
+footer { text-align:center; border-top:1px solid var(--line); padding:25px; color:var(--muted); font-size:12px; }
+.chat { display:flex; flex-direction:column; gap:10px; min-height:200px; max-height:390px; overflow:auto; padding:8px 0; }
+.bubble { max-width:88%; padding:12px 14px; border-radius:13px; background:var(--panel2); font-size:13px; line-height:1.6; white-space:pre-wrap; }
+.bubble.user { align-self:flex-end; background:#25331b; border:1px solid #cccfc9; }
+.bubble.bot { align-self:flex-start; }
+.chat-form { display:flex; gap:8px; margin-top:10px; }
+.chat-form input { flex:1; min-width:0; }
+.day { background:var(--panel2); padding:14px; border-radius:12px; border:1px solid var(--line); }
+.day strong { display:block; color:var(--lime); font-size:12px; margin-bottom:7px; }
+.day span { font-size:12px; color:var(--muted); }
+.small-btn { background:none; color:var(--lime); border:0; font-size:12px; padding:6px; }
+.empty { text-align:center; padding:22px 5px; color:var(--muted); font-size:13px; }
+#toast { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:var(--lime); color:#111; padding:12px 18px; border-radius:12px; font-size:13px; font-weight:bold; display:none; z-index:20; }
+@media(max-width:900px) {
+  header { height:auto; min-height:70px; align-items:flex-start; padding:16px 4%; flex-direction:column; gap:14px; }
+  nav { width:100%; overflow-x:auto; flex-wrap:nowrap; padding-bottom:3px; }
+  nav button { white-space:nowrap; }
+  .grid-4 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .grid-3 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:600px) {
+  .wrap { padding:20px 14px 40px; }
+  .hero { min-height:0; padding:25px 20px; }
+  .hero-art { display:none; }
+  .grid-2,.grid-3,.grid-4 { grid-template-columns:1fr; }
+  .section-head { align-items:flex-start; flex-direction:column; }
+  h1 { letter-spacing:-1px; }
+  .two-inputs { gap:9px; }
+  .card { padding:17px; }
+}
+</style>
 </head>
-
-
 <body>
 
-
-<header class="navbar">
-
-    <div class="nav-container">
-
-        <a href="#home"
-           class="logo">
-
-            Developer<span>.</span>
-
-        </a>
-
-
-        <nav class="nav-links">
-
-            <a href="#home">
-                Home
-            </a>
-
-            <a href="#about">
-                About
-            </a>
-
-            <a href="#skills">
-                Skills
-            </a>
-
-            <a href="#projects">
-                Projects
-            </a>
-
-            <a href="#journey">
-                Journey
-            </a>
-
-            <a href="#contact">
-                Contact
-            </a>
-
-        </nav>
-
-
-        <a href="#contact"
-           class="nav-button">
-
-            Let's Talk
-
-        </a>
-
-
-        <button
-            class="menu-button"
-            id="menuButton">
-
-            ☰
-
-        </button>
-
-    </div>
-
+<header>
+  <a class="brand" href="#" onclick="showPage('home');return false">
+    GET<span>DONE</span><small>YOUR BODY. YOUR MISSION.</small>
+  </a>
+  <nav>
+    <button class="active" data-page="home" onclick="showPage('home')">Home</button>
+    <button data-page="calculators" onclick="showPage('calculators')">Calculators</button>
+    <button data-page="workouts" onclick="showPage('workouts')">Workouts</button>
+    <button data-page="nutrition" onclick="showPage('nutrition')">Nutrition</button>
+    <button data-page="progress" onclick="showPage('progress')">Progress</button>
+    <button data-page="coach" onclick="showPage('coach')">AI Coach</button>
+  </nav>
 </header>
 
-
-
-<section
-    class="hero"
-    id="home">
-
-
-    <div class="hero-bg"></div>
-
-
-    <div class="hero-container">
-
-
-        <div class="hero-content reveal">
-
-
-            <p class="hero-small">
-
-                HELLO, I'M
-
-            </p>
-
-
-            <h1>
-
-                Rohith
-
-                <span>
-                
-                </span>
-
-            </h1>
-
-
-            <div class="hero-role">
-
-                <span id="typingText"></span>
-
-                <span class="cursor">
-                    |
-                </span>
-
-            </div>
-
-
-            <p class="hero-description">
-
-                Mechanical Engineering graduate
-                transitioning into software development,
-                with a strong interest in frontend and now learning about backend engineering,
-                APIs, databases and scalable software systems.
-
-            </p>
-
-
-            <div class="hero-buttons">
-
-
-                <a href="#projects"
-                   class="primary-button">
-
-                    View Projects
-
-                    <span>
-                        ↗
-                    </span>
-
-                </a>
-
-
-                <a href="#contact"
-                   class="secondary-button">
-
-                    Contact Me
-
-                </a>
-
-
-            </div>
-
-
-        </div>
-
-
-
-        <!-- CODE WINDOW -->
-
-        <div class="code-window reveal">
-
-
-            <div class="window-header">
-
-
-                <div class="window-dots">
-
-                    <span></span>
-
-                    <span></span>
-
-                    <span></span>
-
-                </div>
-
-
-                <p>
-                    rohith.js
-                </p>
-
-
-            </div>
-
-
-            <div class="code-content">
-
-
-<pre><span class="purple">const</span> developer = {
-
-  <span class="blue">name</span>:
-    <span class="green">"Rohith "</span>,
-
-  <span class="blue">education</span>:
-    <span class="green">"Mechanical Engineering"</span>,
-
-  <span class="blue">role</span>:
-    <span class="green">"frontend" and "Backend Developer"</span>,
-
-  <span class="blue">languages</span>: [
-    <span class="green">"Html"</span>, 
-    <span class="green">"Css"</span>, 
-    <span class="green">"JavaScript"</span> 
-    <span class="green">"Java"</span>,
-
-    <span class="green">"Dsa"</span>
-
-
-  ],
-
-  <span class="blue">backend</span>: [
-
-    <span class="green">"Spring Boot"</span>,
-
-    <span class="green">"Node.js"</span>,
-
-    <span class="green">"Express.js"</span>,
-
-    <span class="green">".NET"</span>
-
-  ],
-
-  <span class="blue">database</span>: [
-
-    <span class="green">"MySQL"</span>,
-
-    <span class="green">"MongoDB"</span>
-
-  ]
-
-};</pre>
-
-
-            </div>
-
-        </div>
-
-
+<main class="wrap">
+
+<!-- HOME -->
+<section class="page active" id="home">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">build with. science.</div>
+      <h1>BUILD YOUR<br> <span>BEST SELF.</span></h1>
+      <p>Your all-in-one fitness dashboard. Track calories, build muscle, plan workouts and understand your nutrition — all in one place.</p>
+      <button class="btn primary" onclick="showPage('calculators')">Calculate my targets ↗</button>
+      <button class="btn" onclick="showPage('workouts')">Explore workouts</button>
     </div>
+    <div class="hero-art">◈</div>
+  </div>
 
+  <div class="section-head"><div><div class="eyebrow">YOUR OVERVIEW</div><h2>Today's <span>Dashboard</span></h2></div><span class="pill" id="today"></span></div>
+  <div class="grid grid-4">
+    <div class="card"><span class="muted">CALORIES EATEN</span><div class="metric" id="homeCalories">0 <small>kcal</small></div><div class="progress"><div id="homeCalBar" style="width:0%"></div></div><span class="muted" id="homeCalNote">Log your first meal</span></div>
+    <div class="card"><span class="muted">PROTEIN TODAY</span><div class="metric" id="homeProtein">0 <small>g</small></div><div class="progress"><div id="homeProteinBar" style="width:0%"></div></div><span class="muted">Daily protein target</span></div>
+    <div class="card"><span class="muted">WATER INTAKE</span><div class="metric" id="homeWater">0 <small>ml</small></div><div class="progress"><div id="homeWaterBar" style="width:0%"></div></div><button class="small-btn" onclick="addWater(250)">+ Add 250 ml</button></div>
+    <div class="card"><span class="muted">SLEEP LAST NIGHT</span><div class="metric" id="homeSleep">0 <small>hrs</small></div><div class="progress"><div id="homeSleepBar" style="width:0%"></div></div><button class="small-btn" onclick="showPage('progress')">Update sleep ↗</button></div>
+  </div>
 
-    <div class="scroll-indicator">
-
-        <span>
-            SCROLL TO EXPLORE
-        </span>
-
-        <div class="scroll-line"></div>
-
-    </div>
-
-
+  <div class="section-head"><div><h2>Quick <span>Actions</span></h2><p>Keep your routine moving.</p></div></div>
+  <div class="grid grid-3">
+    <div class="card"><div class="eyebrow">01 / NUTRITION</div><h3 style="margin-top:15px">Track your food</h3><p>Log Indian meals and check your daily calorie and macro intake.</p><button class="btn primary" onclick="showPage('nutrition')">Open food tracker →</button></div>
+    <div class="card"><div class="eyebrow">02 / TRAINING</div><h3 style="margin-top:15px">Plan your training</h3><p>Choose your goal, available days and equipment to get a split.</p><button class="btn primary" onclick="showPage('workouts')">Build a workout →</button></div>
+    <div class="card"><div class="eyebrow">03 / YOUR DATA</div><h3 style="margin-top:15px">Know your numbers</h3><p>Estimate BMI, body fat and calorie requirements.</p><button class="btn primary" onclick="showPage('calculators')">Open calculators →</button></div>
+  </div>
+  <div class="section-head"><div><h2>Fitness <span>essentials</span></h2><p>The fundamentals that matter most.</p></div></div>
+  <div class="grid grid-3">
+    <div class="card"><div class="metric lime">01</div><h3>Progressive overload</h3><p>Gradually increase repetitions, resistance or training quality while maintaining good technique.</p></div>
+    <div class="card"><div class="metric lime">02</div><h3>Consistent nutrition</h3><p>Eat enough protein, choose varied whole foods and match energy intake to your goal.</p></div>
+    <div class="card"><div class="metric lime">03</div><h3>Recovery matters</h3><p>Prioritize sleep, rest days and manageable training volume to support recovery.</p></div>
+  </div>
 </section>
 
-
-
-<!-- =====================================================
-     ABOUT
-====================================================== -->
-
-<section
-    class="section about"
-    id="about">
-
-
-    <div class="container">
-
-
-        <div class="section-heading reveal">
-
-
-            <p class="section-number">
-
-                01 / ABOUT
-
-            </p>
-
-
-            <h2>
-
-                From Mechanical
-
-                <span>
-                    to Software.
-                </span>
-
-            </h2>
-
-
-        </div>
-
-
-
-        <div class="about-grid">
-
-
-            <div class="about-text reveal">
-
-
-                <p class="large-text">
-
-                    I am
-                    <strong>
-                        Rohith
-                    </strong>,
-
-                    a Mechanical Engineering graduate
-                    who developed a strong interest in
-                    software development.
-
-                </p>
-
-
-                <p>
-
-                    My current focus is backend and software
-                    development. I enjoy understanding how
-                    applications work behind the scenes —
-                    from APIs and authentication to databases
-                    and server-side logic.
-
-                </p>
-
-
-                <p>
-
-                    I am continuously developing my skills
-                    in Java, Spring Boot, Node.js, Express.js,
-                    JavaScript, React.js, SQL and MongoDB.
-
-                </p>
-
-
-                <p>
-
-                    My engineering background has helped me
-                    develop analytical thinking, problem solving
-                    and a structured approach to learning
-                    technology.
-
-                </p>
-
-
-            </div>
-
-
-
-            <div class="about-stats reveal">
-
-
-                <div class="stat-card">
-
-                    <span>
-                        01
-                    </span>
-
-                    <h3>
-                        Backend
-                    </h3>
-
-                    <p>
-                        Java,DSa, Spring Boot,
-                        Node.js, Express.js
-                    </p>
-
-                </div>
-
-
-                <div class="stat-card">
-
-                    <span>
-                        02
-                    </span>
-
-                    <h3>
-                        Database
-                    </h3>
-
-                    <p>
-                        MySQL & MongoDB
-                    </p>
-
-                </div>
-
-
-                <div class="stat-card">
-
-                    <span>
-                        03
-                    </span>
-
-                    <h3>
-                        APIs
-                    </h3>
-
-                    <p>
-                        REST API & GraphQL
-                    </p>
-
-                </div>
-
-
-                <div class="stat-card">
-
-                    <span>
-                        04
-                    </span>
-
-                    <h3>
-                        Security
-                    </h3>
-
-                    <p>
-                        JWT & OAuth
-                    </p>
-
-                </div>
-
-
-            </div>
-
-
-        </div>
-
-
+<!-- CALCULATORS -->
+<section class="page" id="calculators">
+  <div class="eyebrow">MEASURE. UNDERSTAND. IMPROVE.</div>
+  <h1>Your body,<br><span>by the numbers.</span></h1>
+  <p>Use these estimates to set a starting point. They are not a medical diagnosis.</p>
+
+  <div class="grid grid-2" style="margin-top:25px">
+    <div class="card">
+      <h2>BMI <span>Calculator</span></h2>
+      <p>Body mass index uses weight relative to height. It does not distinguish muscle from fat.</p>
+      <label>Height (cm)</label><input type="number" id="bmiHeight" placeholder="e.g. 175" min="50" max="260">
+      <label>Weight (kg)</label><input type="number" id="bmiWeight" placeholder="e.g. 75" min="10" max="500">
+      <button class="btn primary" onclick="calculateBMI()">Calculate BMI</button>
+      <div id="bmiResult"></div>
     </div>
 
+    <div class="card">
+      <h2>Body Fat <span>Estimate</span></h2>
+      <p>Uses the US Navy circumference method. Measurements and equation conventions affect accuracy.</p>
+      <label>Sex used by equation</label>
+      <select id="bfSex"><option value="male">Male</option><option value="female">Female</option></select>
+      <div class="two-inputs">
+        <div><label>Height (cm)</label><input type="number" id="bfHeight" placeholder="175"></div>
+        <div><label>Neck (cm)</label><input type="number" id="bfNeck" placeholder="38"></div>
+        <div><label>Waist (cm)</label><input type="number" id="bfWaist" placeholder="85"></div>
+        <div id="hipWrap" style="display:none"><label>Hip (cm)</label><input type="number" id="bfHip" placeholder="100"></div>
+      </div>
+      <button class="btn primary" onclick="calculateBF()">Estimate body fat</button>
+      <div id="bfResult"></div>
+    </div>
 
+    <div class="card">
+      <h2>Calories & <span>Macros</span></h2>
+      <p>Maintenance calories use the Mifflin–St Jeor equation with an activity multiplier.</p>
+      <div class="two-inputs">
+        <div><label>Age</label><input type="number" id="age" min="18" max="100" placeholder="25"></div>
+        <div><label>Sex used by equation</label><select id="calSex"><option value="male">Male</option><option value="female">Female</option></select></div>
+        <div><label>Height (cm)</label><input type="number" id="calHeight" placeholder="175"></div>
+        <div><label>Weight (kg)</label><input type="number" id="calWeight" placeholder="75"></div>
+      </div>
+      <label>Activity level</label>
+      <select id="activity">
+        <option value="1.2">Sedentary — little exercise</option>
+        <option value="1.375">Light — 1–3 days/week</option>
+        <option value="1.55" selected>Moderate — 3–5 days/week</option>
+        <option value="1.725">High — 6–7 days/week</option>
+        <option value="1.9">Very high — demanding activity</option>
+      </select>
+      <label>Goal</label>
+      <select id="goal"><option value="cut">Fat loss / cut</option><option value="maintain">Maintain / recomp starting point</option><option value="bulk">Muscle gain / bulk</option></select>
+      <button class="btn primary" onclick="calculateMacros()">Calculate targets</button>
+      <div id="macroResult"></div>
+    </div>
+
+    <div class="card">
+      <h2>Goal <span>guide</span></h2>
+      <div class="food-row"><div><strong>Cut</strong><small>Moderate calorie deficit, preserve training performance</small></div><span class="pill">−10–20%</span></div>
+      <div class="food-row"><div><strong>Maintain / recomp</strong><small>Near maintenance, progressive resistance training</small></div><span class="pill">~0%</span></div>
+      <div class="food-row"><div><strong>Lean bulk</strong><small>Small surplus, monitor weight and waist trends</small></div><span class="pill">+5–10%</span></div>
+      <p>These are general starting ranges, not mandatory targets. Recalculate as your body weight and activity change.</p>
+    </div>
+  </div>
 </section>
 
-
-
-<!-- =====================================================
-     SKILLS
-====================================================== -->
-
-<section
-    class="section skills-section"
-    id="skills">
-
-
-    <div class="container">
-
-
-        <div class="section-heading reveal">
-
-
-            <p class="section-number">
-
-                02 / TECHNOLOGIES
-
-            </p>
-
-
-            <h2>
-
-                My Technical
-
-                <span>
-                    Stack.
-                </span>
-
-            </h2>
-
-
-        </div>
-
-
-
-        <div class="skills-grid">
-
-
-            <!-- LANGUAGES -->
-
-            <div class="skill-category reveal">
-
-
-                <div class="category-number">
-                    01
-                </div>
-
-
-                <h3>
-                    Languages
-                </h3>
-
-
-                <div class="skill-list">
-
-
-                    <div class="skill">
-
-                        <span>
-                            Java
-                        </span>
-
-                        <small>
-                            Backend
-                        </small>
-
-                    </div>
-
-
-                    <div class="skill">
-
-                        <span>
-                            JavaScript
-                        </span>
-
-                        <small>
-                            Programming
-                        </small>
-
-                    </div>
-
-
-                    <div class="skill">
-
-                        <span>
-                            HTML
-                        </span>
-
-                        <small>
-                            Frontend
-                        </small>
-
-                    </div>
-
-
-                    <div class="skill">
-
-                        <span>
-                            CSS
-                        </span>
-
-                        <small>
-                            Frontend
-                        </small>
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- BACKEND -->
-
-            <div class="skill-category reveal">
-
-
-                <div class="category-number">
-                    02
-                </div>
-
-
-                <h3>
-                    Backend
-                </h3>
-
-
-                <div class="skill-list">
-
-
-                    <div class="skill">
-
-                        <span>
-                            Spring Boot
-                        </span>
-
-                        <small>
-                            Java
-                        </small>
-
-                    </div>
-
-
-                    <div class="skill">
-
-                        <span>
-                            Node.js
-                        </span>
-
-                        <small>
-                            Runtime
-                        </small>
-
-                    </div>
-
-
-                    <div class="skill">
-
-                        <span>
-                            Express.js
-                        </span>
-
-                        <small>
-                            Framework
-                        </small>
-
-                    </div>
-
-
-                    <div class="skill">
-
-                        <span>
-                            .NET
-                        </span>
-
-                        <small>
-                            Framework
-                        </small>
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- FRONTEND -->
-
-            <div class="skill-category reveal">
-
-
-                <div class="category-number">
-                    03
-                </div>
-
-
-                <h3>
-                    Frontend
-                </h3>
-
-
-                <div class="skill-list">
-
-
-                    <div class="skill">
-
-                        <span>
-                            React.js
-                        </span>
-
-                        <small>
-                            Library
-                        </small>
-
-                    </div>
-
-
-                    <div class="skill">
-
-                        <span>
-                            JavaScript
-                        </span>
-
-                        <small>
-                            ES6+
-                        </small>
-
-                    </div>
-
-
-                    <div class="skill">
-
-                        <span>
-                            HTML5
-                        </span>
-
-                        <small>
-                            Markup
-                        </small>
-
-                    </div>
-
-
-                    <div class="skill">
-
-                        <span>
-                            CSS3
-                        </span>
-
-                        <small>
-                            Styling
-                        </small>
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- DATABASE -->
-
-            <div class="skill-category reveal">
-
-
-                <div class="category-number">
-                    04
-                </div>
-
-
-                <h3>
-                    Database
-                </h3>
-
-
-                <div class="skill-list">
-
-
-                    <div class="skill">
-
-                        <span>
-                            MySQL
-                        </span>
-
-                        <small>
-                            SQL
-                        </small>
-
-                    </div>
-
-
-                    <div class="skill">
-
-                        <span>
-                            MongoDB
-                        </span>
-
-                        <small>
-                            NoSQL
-                        </small>
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- API -->
-
-            <div class="skill-category reveal">
-
-
-                <div class="category-number">
-                    05
-                </div>
-
-
-                <h3>
-                    APIs
-                </h3>
-
-
-                <div class="skill-list">
-
-
-                    <div class="skill">
-
-                        <span>
-                            REST API
-                        </span>
-
-                        <small>
-                            API
-                        </small>
-
-                    </div>
-
-
-                    <div class="skill">
-
-                        <span>
-                            GraphQL
-                        </span>
-
-                        <small>
-                            API
-                        </small>
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- AUTH -->
-
-            <div class="skill-category reveal">
-
-
-                <div class="category-number">
-                    06
-                </div>
-
-
-                <h3>
-                    Authentication
-                </h3>
-
-
-                <div class="skill-list">
-
-
-                    <div class="skill">
-
-                        <span>
-                            JWT
-                        </span>
-
-                        <small>
-                            Authentication
-                        </small>
-
-                    </div>
-
-
-                    <div class="skill">
-
-                        <span>
-                            OAuth
-                        </span>
-
-                        <small>
-                            Authorization
-                        </small>
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-
-        </div>
-
-
+<!-- WORKOUTS -->
+<section class="page" id="workouts">
+  <div class="eyebrow">TRAIN WITH A PLAN</div>
+  <h1>Make every<br><span>rep count.</span></h1>
+  <div class="grid grid-2" style="margin-top:25px">
+    <div class="card">
+      <h2>Workout <span>Planner</span></h2>
+      <label>Primary goal</label>
+      <select id="workGoal"><option value="muscle">Muscle growth / hypertrophy</option><option value="strength">Strength</option><option value="fat">Fat loss / fitness</option><option value="general">General fitness</option></select>
+      <label>Days per week</label>
+      <select id="workDays"><option value="2">2 days</option><option value="3">3 days</option><option value="4" selected>4 days</option><option value="5">5 days</option><option value="6">6 days</option></select>
+      <label>Equipment</label>
+      <select id="equipment"><option value="gym">Full gym</option><option value="home">Home with dumbbells</option><option value="body">Bodyweight only</option></select>
+      <button class="btn primary" onclick="generateWorkout()">Generate weekly plan</button>
+      <div id="workoutPlan"></div>
     </div>
+    <div class="card">
+      <h2>Rest <span>Timer</span></h2>
+      <p>Choose a rest interval between working sets.</p>
+      <div class="metric" id="timerDisplay" style="font-size:55px;text-align:center">01:30</div>
+      <div class="two-inputs">
+        <div><label>Minutes</label><select id="restMin"><option>0</option><option selected>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+        <div><label>Seconds</label><select id="restSec"><option>0</option><option>15</option><option selected>30</option><option>45</option></select></div>
+      </div>
+      <button class="btn primary" id="timerStart" onclick="startTimer()">Start</button>
+      <button class="btn" onclick="pauseTimer()">Pause</button>
+      <button class="btn" onclick="resetTimer()">Reset</button>
+      <hr>
+      <h3>Suggested rest</h3>
+      <p>Heavy strength sets: 2–5 minutes. Muscle-building sets: commonly 1–3 minutes. Shorter rests may work for isolation exercises if performance stays strong.</p>
+    </div>
+  </div>
 
-
+  <div class="section-head"><div><h2>Exercise <span>library</span></h2><p>Search movements and log completed sets.</p></div></div>
+  <div class="card">
+    <input id="exerciseSearch" placeholder="Search exercises or muscles..." oninput="renderExercises()">
+    <div id="exerciseList"></div>
+  </div>
+  <div class="section-head"><div><h2>Workout <span>history</span></h2><p>Completed sets saved in this browser.</p></div><button class="btn" onclick="clearWorkoutLog()">Clear history</button></div>
+  <div class="card" id="workoutHistory"></div>
 </section>
 
+<!-- NUTRITION -->
+<section class="page" id="nutrition">
+  <div class="eyebrow">EAT FOR YOUR GOAL</div>
+  <h1>Nutrition is<br><span>your foundation.</span></h1>
+  <p>Search a starter database of common foods. Values vary with ingredients, cooking methods and serving size.</p>
 
-
-<!-- =====================================================
-     BACKEND FOCUS
-====================================================== -->
-
-<section
-    class="backend-section">
-
-
-    <div class="container">
-
-
-        <div class="backend-content reveal">
-
-
-            <p class="section-number">
-
-                03 / BACKEND FOCUS
-
-            </p>
-
-
-            <h2>
-
-                Building the logic
-
-                <span>
-                    behind the interface.
-                </span>
-
-            </h2>
-
-
-            <p>
-
-                My main area of interest is backend software
-                development. I want to build reliable APIs,
-                secure authentication systems, database-driven
-                applications and scalable server-side systems.
-
-            </p>
-
-
-
-            <div class="backend-points">
-
-
-                <div>
-
-                    <span>
-                        01
-                    </span>
-
-                    <h3>
-                        API Development
-                    </h3>
-
-                    <p>
-
-                        RESTful APIs and GraphQL services
-                        for application communication.
-
-                    </p>
-
-                </div>
-
-
-                <div>
-
-                    <span>
-                        02
-                    </span>
-
-                    <h3>
-                        Authentication
-                    </h3>
-
-                    <p>
-
-                        Secure authentication using
-                        JWT and OAuth concepts.
-
-                    </p>
-
-                </div>
-
-
-                <div>
-
-                    <span>
-                        03
-                    </span>
-
-                    <h3>
-                        Database Systems
-                    </h3>
-
-                    <p>
-
-                        Working with relational and
-                        NoSQL databases.
-
-                    </p>
-
-                </div>
-
-
-            </div>
-
-
-        </div>
-
-
+  <div class="grid grid-2" style="margin-top:25px">
+    <div class="card">
+      <h2>Food <span>tracker</span></h2>
+      <label>Search Indian foods</label>
+      <input id="foodSearch" placeholder="Try idli, dal, rice, paneer..." oninput="renderFoods()">
+      <div id="foodList"></div>
     </div>
+    <div class="card">
+      <h2>Today's <span>intake</span></h2>
+      <div class="metric" id="foodCalories">0 <small>kcal</small></div>
+      <div class="progress"><div id="foodCalBar" style="width:0%"></div></div>
+      <div class="macro"><span>Protein</span><strong id="foodProtein">0 g</strong></div>
+      <div class="progress"><div id="foodProBar" style="width:0%"></div></div>
+      <div class="macro"><span>Carbohydrates</span><strong id="foodCarbs">0 g</strong></div>
+      <div class="progress"><div id="foodCarbBar" style="width:0%"></div></div>
+      <div class="macro"><span>Fat</span><strong id="foodFat">0 g</strong></div>
+      <div class="progress"><div id="foodFatBar" style="width:0%"></div></div>
+      <label>Serving multiplier</label>
+      <p class="muted">Add foods using their listed standard serving. Remove items to correct the log.</p>
+      <div id="mealLog"></div>
+      <button class="btn" onclick="clearMeals()">Clear today's food</button>
+    </div>
+  </div>
 
+  <div class="section-head"><div><h2>Protein sources: <span>practical ranking</span></h2><p>Compare protein quality, convenience, cost and your dietary needs.</p></div></div>
+  <div class="card">
+    <div class="food-row"><div><strong>1. Eggs, milk, curd and whey</strong><small>Complete protein sources; whey is convenient, not compulsory.</small></div><span class="pill">High quality</span></div>
+    <div class="food-row"><div><strong>2. Chicken, fish and lean meats</strong><small>Protein-dense animal foods; fish can also provide omega-3 fats.</small></div><span class="pill">High density</span></div>
+    <div class="food-row"><div><strong>3. Soy chunks, tofu and tempeh</strong><small>Useful high-protein plant options, often cost-effective.</small></div><span class="pill">Plant protein</span></div>
+    <div class="food-row"><div><strong>4. Paneer and Greek-style curd</strong><small>Convenient vegetarian options; fat content varies by product.</small></div><span class="pill">Versatile</span></div>
+    <div class="food-row"><div><strong>5. Dal, rajma, chana and beans</strong><small>Protein plus fibre and micronutrients; combine varied sources across the day.</small></div><span class="pill">Fibre rich</span></div>
+    <div class="food-row"><div><strong>6. Peanuts, seeds and nuts</strong><small>Nutritious, but calorie-dense and less protein-dense than many options above.</small></div><span class="pill">Energy dense</span></div>
+    <p>There is no universal best-to-worst food ranking. A varied diet and enough total daily protein matter more than a single food.</p>
+  </div>
 
+  <div class="section-head"><div><h2>Supplements: <span>evidence guide</span></h2><p>Supplements fill gaps; they cannot replace food, sleep or training.</p></div></div>
+  <div class="grid grid-2">
+    <div class="card"><span class="pill">Useful for many lifters</span><h3 style="margin-top:13px">Creatine monohydrate</h3><p>Strong evidence for improving repeated high-intensity exercise performance and supporting strength gains. A common adult maintenance dose is 3–5 g daily. Check with a clinician if you have kidney disease or relevant medical concerns.</p></div>
+    <div class="card"><span class="pill">Mass Gainer</span><h3 style="margin-top:13px"></h3><p>1.Uses: Supplies extra calories, carbohydrates, and protein.<br>2. Best for: People who struggle to eat enough food to gain weight.<br>3. Note: Can add body fat if you consume more calories than you need. A homemade shake with milk, oats, banana, and peanut butter can be an alternative.</p></div>
+    <div class="card"><span class="pill">When needed</span><h3 style="margin-top:13px">Vitamin D, B12 and iron</h3><p>Useful when intake is inadequate or deficiency is identified. Iron should not be taken routinely without appropriate assessment.</p></div>
+    <div class="card"><span class="pill">Lower priority</span><h3 style="margin-top:13px">BCAAs, fat burners and testosterone boosters</h3><p>Often unnecessary when protein intake is sufficient. Fat burners and hormone-boosting claims deserve particular caution. Avoid products with undisclosed ingredients.</p></div>
+      <div class="card"><span class="pill">Usefull for meal prep</span><h3 style="margin-top:13px">Whey protien,</h3><p>
+1. Uses: Helps build and repair muscles after workouts.<br>
+2. Best for: People who struggle to get enough protein from food.<br>
+3. Types: Concentrate, isolate, hydrolyzed whey.<br>
+4.How to use: A serving commonly provides 20–30 g of protein, depending on the product.<br>
+5. Note: Whey isolate usually has less lactose than concentrate.</p></div>
+    <div class="card"><span class="pill">Pre Workout</span><h3 style="margin-top:13px"></h3><p>1.Uses: May increase alertness, energy, and workout performance.<br>2.Common ingredients: Caffeine, citrulline, beta-alanine.<br>3.Note: Check the caffeine amount. High doses can cause anxiety, palpitations, and sleep problems. Avoid taking it close to bedtime.</p></div>
+<div class="card"><span class="pill">Caffeine</span><p>1.Use: Can improve alertness and reduce perceived effort during exercise.<br>2.Best for: People who tolerate caffeine well and need a performance boost.<br>3.Note: Coffee is another option. Avoid pure caffeine powders, and don't combine multiple stimulant products without checking the total dose.</p></div>
+<div class="card"><span class="pill">Beta-alanine</span><p>1.Use: May improve performance in repeated, intense exercise lasting roughly 1–4 minutes.<br>2.Typical studied dose: Around 3.2–6.4 g daily, often split into smaller servings.<br>3.Note:Tingling of the skin is a common side effect. It isn't a direct muscle-building supplement. </p></div>
+<div class="card"><span class="pill">L-citrulline / citrulline malate</span><p>1.Use: May modestly improve blood flow and some aspects of exercise performance.<br>2.Best for: People experimenting with workout performance or training volume.<br>3.Note:Evidence is mixed; a muscle pump does not automatically mean more muscle growth. </p></div>
+
+  </div>
+  <div class="section-head"><div><h2>Build a <span>meal plan</span></h2><p>Simple meal ideas, adaptable to vegetarian or non-vegetarian diets.</p></div></div>
+  <div class="card">
+    <div class="two-inputs">
+      <div><label>Diet preference</label><select id="diet"><option value="veg">Vegetarian</option><option value="nonveg">Non-vegetarian</option><option value="vegan">Vegan</option></select></div>
+      <div><label>Goal</label><select id="mealGoal"><option value="cut">Cut</option><option value="maintain">Maintain / recomp</option><option value="bulk">Bulk</option></select></div>
+    </div>
+    <button class="btn primary" onclick="generateMeals()">Generate meal ideas</button>
+    <div id="mealPlan"></div>
+    <button class="btn" onclick="makeShoppingList()">Create shopping list</button>
+    <div id="shoppingList"></div>
+  </div>
 </section>
 
-
-
-<!-- =====================================================
-     PROJECTS
-====================================================== -->
-
-<section
-    class="section projects-section"
-    id="projects">
-
-
-    <div class="container">
-
-
-        <div class="section-heading reveal">
-
-
-            <p class="section-number">
-
-                04 / PROJECTS
-
-            </p>
-
-
-            <h2>
-
-                Things I'm
-
-                <span>
-                    Building.
-                </span>
-
-            </h2>
-
-
-            <p class="heading-description">
-
-                This section is ready for my upcoming
-                software and backend projects.
-
-            </p>
-
-
-        </div>
-
-
-
-        <div class="projects-grid">
-
-
-            <!-- PROJECT 01 -->
-
-            <article class="project-card reveal">
-
-
-                <div class="project-top">
-
-                    <span class="project-number">
-                        01
-                    </span>
-
-                    <span class="project-status">
-                        COMING SOON
-                    </span>
-
-                </div>
-
-
-                <h3>
-                    Project Names
-                </h3>
-
-
-                <p>
-
-                </p>
-
-
-                <div class="project-tech">
-
-                    <span>
-                        Java
-                    </span>
-
-                    <span>
-                        Spring Boot
-                    </span>
-
-                    <span>
-                        MySQL
-                    </span>
-
-                    <span>
-                        REST API
-                    </span>
-
-                </div>
-
-
-                <div class="project-links">
-
-                    <a href="#">
-                        GitHub ↗
-                    </a>
-
-                    <a href="#">
-                        Live Demo ↗
-                    </a>
-
-                </div>
-
-
-            </article>
-
-
-
-            <!-- PROJECT 02 -->
-
-            <article class="project-card reveal">
-
-
-                <div class="project-top">
-
-                    <span class="project-number">
-                        02
-                    </span>
-
-                    <span class="project-status">
-                        COMING SOON
-                    </span>
-
-                </div>
-
-
-                <h3>
-                    Backend Project
-                </h3>
-
-
-                <p>
-
-                    
-
-                </p>
-
-
-                <div class="project-tech">
-
-                    <span>
-                        Node.js
-                    </span>
-
-                    <span>
-                        Express.js
-                    </span>
-
-                    <span>
-                        MongoDB
-                    </span>
-
-                    <span>
-                        JWT
-                    </span>
-
-                </div>
-
-
-                <div class="project-links">
-
-                    <a href="#">
-                        GitHub ↗
-                    </a>
-
-                    <a href="#">
-                        Live Demo ↗
-                    </a>
-
-                </div>
-
-
-            </article>
-
-
-
-            <!-- PROJECT 03 -->
-
-            <article class="project-card reveal">
-
-
-                <div class="project-top">
-
-                    <span class="project-number">
-                        03
-                    </span>
-
-                    <span class="project-status">
-                        COMING SOON
-                    </span>
-
-                </div>
-
-
-                <h3>
-                    Full Stack Application
-                </h3>
-
-
-                <p>
-
-                    
-
-                </p>
-
-
-                <div class="project-tech">
-
-                    <span>
-                        React.js
-                    </span>
-
-                    <span>
-                        Node.js
-                    </span>
-
-                    <span>
-                        MongoDB
-                    </span>
-
-                    <span>
-                        GraphQL
-                    </span>
-
-                </div>
-
-
-                <div class="project-links">
-
-                    <a href="#">
-                        GitHub ↗
-                    </a>
-
-                    <a href="#">
-                        Live Demo ↗
-                    </a>
-
-                </div>
-
-
-            </article>
-
-
-        </div>
-
-
-
-        <div class="project-note reveal">
-
-            <span>
-                +
-            </span>
-
-            <p>
-
-                
-
-            </p>
-
-        </div>
-
-
+<!-- PROGRESS -->
+<section class="page" id="progress">
+  <div class="eyebrow">SMALL STEPS. REAL PROGRESS.</div>
+  <h1>Track your<br><span>consistency.</span></h1>
+  <div class="grid grid-2" style="margin-top:25px">
+    <div class="card">
+      <h2>Daily <span>habits</span></h2>
+      <label>Water consumed (ml)</label><input id="waterInput" type="number" min="0" max="10000" placeholder="2500">
+      <button class="btn primary" onclick="saveWater()">Save water</button>
+      <button class="btn" onclick="addWater(250)">+250 ml</button>
+      <label>Sleep last night (hours)</label><input id="sleepInput" type="number" min="0" max="24" step=".25" placeholder="8">
+      <button class="btn primary" onclick="saveSleep()">Save sleep</button>
+      <hr>
+      <h3>Rest and recovery</h3>
+      <p>Most adults benefit from 7–9 hours of sleep. Hydration needs vary with body size, activity, climate and medical conditions; use thirst and urine colour as general guides.</p>
     </div>
-
-
+    <div class="card">
+      <h2>Body <span>measurements</span></h2>
+      <label>Weight (kg)</label><input id="trackWeight" type="number" min="1" max="500" step=".1" placeholder="75">
+      <label>Waist (cm)</label><input id="trackWaist" type="number" min="1" max="300" step=".1" placeholder="85">
+      <label>BMI (optional)</label><input id="trackBMI" type="number" min="1" max="100" step=".1" placeholder="From calculator">
+      <label>Body fat % (optional)</label><input id="trackBF" type="number" min="1" max="75" step=".1" placeholder="From calculator">
+      <button class="btn primary" onclick="saveMeasurements()">Save measurements</button>
+    </div>
+  </div>
+  <div class="section-head"><div><h2>Your <span>history</span></h2><p>Entries are stored locally in this browser.</p></div><button class="btn" onclick="exportData()">Export data</button></div>
+  <div class="card" id="measurementHistory"></div>
+  <div class="section-head"><div><h2>Progress <span>photos</span></h2><p>Optional private photo log stored in this browser. Photos are not uploaded.</p></div></div>
+  <div class="card">
+    <label>Select a progress photo</label><input type="file" id="photoInput" accept="image/*">
+    <button class="btn primary" onclick="savePhoto()">Save photo</button>
+    <div id="photoGallery" class="grid grid-3" style="margin-top:16px"></div>
+    <p class="muted">Photos can use significant browser storage. Keep backups and avoid using a shared device for private images.</p>
+  </div>
 </section>
 
-
-
-<!-- =====================================================
-     JOURNEY
-====================================================== -->
-
-<section
-    class="section journey-section"
-    id="journey">
-
-
-    <div class="container">
-
-
-        <div class="section-heading reveal">
-
-
-            <p class="section-number">
-
-                05 / JOURNEY
-
-            </p>
-
-
-            <h2>
-
-                My Engineering
-
-                <span>
-                    Journey.
-                </span>
-
-            </h2>
-
-
-        </div>
-
-
-
-        <div class="timeline">
-
-
-            <div class="timeline-item reveal">
-
-
-                <div class="timeline-number">
-
-                    01
-
-                </div>
-
-
-                <div class="timeline-content">
-
-
-                    <p class="timeline-label">
-
-                        EDUCATION
-
-                    </p>
-
-
-                    <h3>
-
-                        Mechanical Engineering
-
-                    </h3>
-
-
-                    <p>
-
-                        Built a foundation in engineering,
-                        analytical thinking, problem solving
-                        and technical concepts.
-
-                    </p>
-
-
-                </div>
-
-
-            </div>
-
-
-
-            <div class="timeline-item reveal">
-
-
-                <div class="timeline-number">
-
-                    02
-
-                </div>
-
-
-                <div class="timeline-content">
-
-
-                    <p class="timeline-label">
-
-                        TRANSITION
-
-                    </p>
-
-
-                    <h3>
-
-                        Discovering Software Development
-
-                    </h3>
-
-
-                    <p>
-
-                        Developed an interest in software
-                        engineering and started learning
-                        programming, web development and
-                        backend technologies.
-
-                    </p>
-
-
-                </div>
-
-
-            </div>
-
-
-
-            <div class="timeline-item reveal">
-
-
-                <div class="timeline-number">
-
-                    03
-
-                </div>
-
-
-                <div class="timeline-content">
-
-
-                    <p class="timeline-label">
-
-                        CURRENT FOCUS
-
-                    </p>
-
-
-                    <h3>
-
-                        Backend & Software Development
-
-                    </h3>
-
-
-                    <p>
-
-                        Currently focusing on Java,
-                        Spring Boot, Node.js, APIs,
-                        databases, authentication and
-                        software development.
-
-                    </p>
-
-
-                </div>
-
-
-            </div>
-
-
-        </div>
-
-
+<!-- COACH -->
+<section class="page" id="coach">
+  <div class="eyebrow">YOUR FITNESS COMPANION</div>
+  <h1>Ask. Learn.<br><span>Get stronger.</span></h1>
+  <p>This demo coach gives basic rule-based guidance. It is not a live AI service and does not replace professional advice.</p>
+  <div class="grid grid-2" style="margin-top:25px">
+    <div class="card">
+      <h2>Fitness <span>coach</span></h2>
+      <div class="chat" id="chatMessages">
+        <div class="bubble bot">Hey! I'm your APEX demo coach. Ask about calories, protein, bulking, cutting, workouts or recovery.</div>
+      </div>
+      <form class="chat-form" onsubmit="askCoach(event)">
+        <input id="chatInput" placeholder="Ask a fitness question..." required>
+        <button class="btn primary" type="submit">Send ↗</button>
+      </form>
+      <div style="margin-top:12px">
+        <button class="small-btn" onclick="quickAsk('How much protein should I eat?')">Protein target</button>
+        <button class="small-btn" onclick="quickAsk('How do I bulk?')">Bulking</button>
+        <button class="small-btn" onclick="quickAsk('Best workout split?')">Workout split</button>
+      </div>
     </div>
-
-
+    <div class="card">
+      <h2>How the body <span>works</span></h2>
+      <h3>Muscle growth</h3><p>Resistance training challenges muscles. Recovery and adequate nutrition help your body adapt over time.</p>
+      <hr><h3>Fat loss</h3><p>A sustained energy deficit generally reduces body weight. Strength training and adequate protein help preserve muscle.</p>
+      <hr><h3>Hormones</h3><p>Hormones regulate processes throughout the body. Sleep, adequate nutrition and overall health support normal function; supplements are not a shortcut to changing hormones safely.</p>
+      <hr><h3>Recovery</h3><p>Sleep, rest, manageable training volume and consistent meals all support recovery and performance.</p>
+    </div>
+  </div>
 </section>
 
-
-
-<!-- =====================================================
-     CONTACT
-====================================================== -->
-
-<section
-    class="contact-section"
-    id="contact">
-
-
-    <div class="container">
-
-
-        <div class="contact-wrapper">
-
-
-            <div class="contact-heading reveal">
-
-
-                <p class="section-number">
-
-                    06 / CONTACT
-
-                </p>
-
-
-                <h2>
-
-                    Let's build
-
-                    <span>
-                        something.
-                    </span>
-
-                </h2>
-
-
-                <p>
-
-                    I'm open to software development
-                    opportunities, internships,
-                    collaborations and interesting
-                    projects.
-
-                </p>
-
-
-            </div>
-
-
-
-            <div class="contact-details reveal">
-
-
-                <!-- EMAIL -->
-
-                <a
-                    href="mailto:rohithkanagaraj07@gmail.com"
-                    class="contact-item">
-
-
-                    <div class="contact-icon">
-
-                        @
-
-                    </div>
-
-
-                    <div>
-
-                        <small>
-                            EMAIL
-                        </small>
-
-                        <span>
-                            let's talk about ctc
-                        </span>
-
-                    </div>
-
-
-                    <strong>
-                        ↗
-                    </strong>
-
-
-                </a>
-
-
-
-                <!-- PHONE -->
-
-                <a
-                    href="tel:+918531812443"
-                    class="contact-item">
-
-
-                    <div class="contact-icon">
-
-                        ☎
-
-                    </div>
-
-
-                    <div>
-
-                        <small>
-                            PHONE
-                        </small>
-
-                        <span>
-                            call me to hire
-                        </span>
-
-                    </div>
-
-
-                    <strong>
-                        ↗
-                    </strong>
-
-
-                </a>
-
-
-
-                <!-- LINKEDIN -->
-
-                <a
-                    href="https://www.linkedin.com/in/rohith-kanagaraj-1643b3371/"
-                    target="_blank"
-                    class="contact-item">
-
-
-                    <div class="contact-icon">
-
-                        in
-
-                    </div>
-
-
-                    <div>
-
-                        <small>
-                            LINKEDIN
-                        </small>
-
-                        <span>
-                            Rohith
-                        </span>
-
-                    </div>
-
-
-                    <strong>
-                        ↗
-                    </strong>
-
-
-                </a>
-
-
-
-                <!-- GITHUB -->
-
-                <a
-                    href="https://github.com/rohithdevs07"
-                    target="_blank"
-                    class="contact-item">
-
-
-                    <div class="contact-icon">
-
-                        GH
-
-                    </div>
-
-
-                    <div>
-
-                        <small>
-                            GITHUB
-                        </small>
-
-                        <span>
-                            rohithdevs07
-                        </span>
-
-                    </div>
-
-
-                    <strong>
-                        ↗
-                    </strong>
-
-
-                </a>
-
-
-
-                <!-- INSTAGRAM -->
-
-                <a
-                    href="https://www.instagram.com/rohith_kanagaraj_/"
-                    target="_blank"
-                    class="contact-item">
-
-
-                    <div class="contact-icon">
-
-                        IG
-
-                    </div>
-
-
-                    <div>
-
-                        <small>
-                            INSTAGRAM
-                        </small>
-
-                        <span>
-                            hi there
-                        </span>
-
-                    </div>
-
-
-                    <strong>
-                        ↗
-                    </strong>
-
-
-                </a>
-
-
-            </div>
-
-
-        </div>
-
-
-
-        <!-- CONTACT FORM -->
-
-        <div class="contact-form reveal">
-
-
-            <h3>
-
-                Send me a message.
-
-            </h3>
-
-
-            <form id="contactForm">
-
-
-                <div class="form-row">
-
-
-                    <div class="input-group">
-
-                        <label>
-                            Name
-                        </label>
-
-                        <input
-                            type="text"
-                            id="name"
-                            placeholder="Your name"
-                            required
-                        >
-
-                    </div>
-
-
-                    <div class="input-group">
-
-                        <label>
-                            Email
-                        </label>
-
-                        <input
-                            type="email"
-                            id="email"
-                            placeholder="your@email.com"
-                            required
-                        >
-
-                    </div>
-
-
-                </div>
-
-
-                <div class="input-group">
-
-                    <label>
-                        Message
-                    </label>
-
-                    <textarea
-                        id="message"
-                        rows="5"
-                        placeholder="Tell me about your project..."
-                        required
-                    ></textarea>
-
-                </div>
-
-
-                <button
-                    type="submit"
-                    class="primary-button">
-
-                    Send Message
-
-                    <span>
-                        ↗
-                    </span>
-
-                </button>
-
-
-            </form>
-
-
-            <p id="formMessage"></p>
-
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     FOOTER
-====================================================== -->
-
-<footer>
-
-
-    <div class="footer-container">
-
-
-        <div class="footer-brand">
-
-
-            <a href="#home"
-               class="logo">
-
-                RK<span>.</span>
-
-            </a>
-
-
-            <p>
-
-                Rohith
-
-                <br>
-
-                Backend & Software Developer
-
-            </p>
-
-
-        </div>
-
-
-
-        <div class="footer-links">
-
-
-            <a href="#home">
-                Home
-            </a>
-
-            <a href="#about">
-                About
-            </a>
-
-            <a href="#skills">
-                Skills
-            </a>
-
-            <a href="#projects">
-                Projects
-            </a>
-
-            <a href="#contact">
-                Contact
-            </a>
-
-
-        </div>
-
-
-
-        <div class="footer-bottom">
-
-
-            <p>
-
-                © 2026 Rohith
-
-            </p>
-
-
-            <p>
-
-                HTML · CSS · JavaScript
-
-            </p>
-
-
-        </div>
-
-
-    </div>
-
-
-</footer>
-
-
-
-<!-- =====================================================
-     JAVASCRIPT
-====================================================== -->
+</main>
+<footer>APEX FITNESS · BUILT FOR CONSISTENCY · NOT MEDICAL ADVICE</footer>
+<div id="toast" role="status"></div>
 
 <script>
+/* ========== APP STATE & STORAGE ========== */
+const $ = id => document.getElementById(id);
+const todayKey = () => new Date().toISOString().slice(0,10);
+const load = (key, fallback) => {
+  try { return JSON.parse(localStorage.getItem(key)) ?? fallback; }
+  catch { return fallback; }
+};
+const save = (key, value) => {
+  try { localStorage.setItem(key, JSON.stringify(value)); }
+  catch { toast("Storage is full. Remove some saved photos or data."); }
+};
+const daily = () => {
+  let data = load("apexDaily", {});
+  if (!data[todayKey()]) data[todayKey()] = { meals:[], water:0, sleep:0 };
+  return data;
+};
+function updateDaily(fn) {
+  const d = daily();
+  fn(d[todayKey()]);
+  save("apexDaily", d);
+  refreshDashboard();
+}
+let timerInterval = null, timerRemaining = 90;
+let currentPhotoURL = null;
 
+function toast(message) {
+  const t = $("toast");
+  t.textContent = message;
+  t.style.display = "block";
+  clearTimeout(toast.timeout);
+  toast.timeout = setTimeout(() => t.style.display="none", 2500);
+}
+function showPage(id) {
+  document.querySelectorAll(".page").forEach(p => p.classList.toggle("active", p.id===id));
+  document.querySelectorAll("nav button").forEach(b => b.classList.toggle("active", b.dataset.page===id));
+  if (id==="nutrition") { renderFoods(); refreshDashboard(); }
+  if (id==="workouts") { renderExercises(); renderWorkoutHistory(); }
+  if (id==="progress") { renderHistory(); renderPhotos(); }
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function clampPercent(value, target) {
+  return Math.max(0, Math.min(100, target>0 ? value/target*100 : 0));
+}
+function refreshDashboard() {
+  const day = daily()[todayKey()];
+  const totals = day.meals.reduce((a,m)=>({
+    calories:a.calories+m.calories,
+    protein:a.protein+m.protein,
+    carbs:a.carbs+m.carbs,
+    fat:a.fat+m.fat
+  }),{calories:0,protein:0,carbs:0,fat:0});
+  const targets = load("apexTargets", {calories:2200,protein:130,carbs:250,fat:70});
+  $("homeCalories").innerHTML = Math.round(totals.calories)+' <small>kcal</small>';
+  $("homeProtein").innerHTML = Math.round(totals.protein)+' <small>g</small>';
+  $("homeCalBar").style.width=clampPercent(totals.calories,targets.calories)+"%";
+  $("homeProteinBar").style.width=clampPercent(totals.protein,targets.protein)+"%";
+  $("homeCalNote").textContent=Math.max(0,Math.round(targets.calories-totals.calories))+" kcal remaining (estimate)";
+  $("homeWater").innerHTML=day.water+' <small>ml</small>';
+  $("homeWaterBar").style.width=clampPercent(day.water,2500)+"%";
+  $("homeSleep").innerHTML=day.sleep+' <small>hrs</small>';
+  $("homeSleepBar").style.width=clampPercent(day.sleep,8)+"%";
+  $("foodCalories").innerHTML=Math.round(totals.calories)+' <small>kcal</small>';
+  $("foodProtein").textContent=Math.round(totals.protein)+" g";
+  $("foodCarbs").textContent=Math.round(totals.carbs)+" g";
+  $("foodFat").textContent=Math.round(totals.fat)+" g";
+  $("foodCalBar").style.width=clampPercent(totals.calories,targets.calories)+"%";
+  $("foodProBar").style.width=clampPercent(totals.protein,targets.protein)+"%";
+  $("foodCarbBar").style.width=clampPercent(totals.carbs,targets.carbs)+"%";
+  $("foodFatBar").style.width=clampPercent(totals.fat,targets.fat)+"%";
+  $("waterInput").value=day.water;
+  $("sleepInput").value=day.sleep;
+  renderMealLog();
+}
 
-/* =========================
-   TYPING ANIMATION
-========================= */
+/* ========== CALCULATORS ========== */
+$("bfSex").addEventListener("change", () => {
+  $("hipWrap").style.display=$("bfSex").value==="female"?"block":"none";
+});
+function calculateBMI() {
+  const h=+$("bmiHeight").value/100, w=+$("bmiWeight").value;
+  if (!(h>0 && w>0)) return toast("Enter a valid height and weight.");
+  const bmi=w/(h*h);
+  let category=bmi<18.5?"Underweight":bmi<25?"Normal range":bmi<30?"Overweight":"Obesity range";
+  $("bmiResult").innerHTML=`<div class="result"><div class="muted">YOUR BMI</div><div class="metric">${bmi.toFixed(1)}</div><strong>${category}</strong><p>BMI is a screening measure, not a direct body-fat measurement. It can misclassify muscular people.</p></div>`;
+  $("trackBMI").value=bmi.toFixed(1);
+  $("trackWeight").value=w;
+}
+function calculateBF() {
+  const sex=$("bfSex").value, h=+$("bfHeight").value, n=+$("bfNeck").value, w=+$("bfWaist").value, hip=+$("bfHip").value;
+  if (!(h>0&&n>0&&w>0) || (sex==="female"&&!(hip>0))) return toast("Enter all required measurements.");
+  if ((sex==="male"&&w<=n)||(sex==="female"&&w+hip<=n)) return toast("Check your waist, hip and neck measurements.");
+  // US Navy circumference equations, using centimetres converted to inches.
+  const inch=2.54, H=h/inch, N=n/inch, W=w/inch, P=hip/inch;
+  let bf=sex==="male"
+    ? 86.010*Math.log10(W-N)-70.041*Math.log10(H)+36.76
+    : 163.205*Math.log10(W+P-N)-97.684*Math.log10(H)-78.387;
+  if (!Number.isFinite(bf)||bf<2||bf>70) return toast("Estimate is outside a plausible range. Recheck measurements.");
+  let category=bf<6?"Very low":bf<14?"Athletic range":bf<18?"Fitness range":bf<25?"Average range":"Higher range";
+  $("bfResult").innerHTML=`<div class="result"><div class="muted">ESTIMATED BODY FAT</div><div class="metric">${bf.toFixed(1)}%</div><strong>${category}</strong><p>These are broad descriptors, not universal health cut-offs. Hydration, measurement technique and individual differences affect estimates.</p></div>`;
+  $("trackBF").value=bf.toFixed(1);
+}
+function calculateMacros() {
+  const age=+$("age").value, h=+$("calHeight").value, w=+$("calWeight").value;
+  if (!(age>=18&&age<=100&&h>0&&w>0)) return toast("Enter a valid adult age, height and weight.");
+  const sex=$("calSex").value;
+  const bmr=10*w+6.25*h-5*age+(sex==="male"?5:-161);
+  const maintenance=bmr*(+$("activity").value);
+  const goal=$("goal").value;
+  const calories=maintenance*(goal==="cut"?.85:goal==="bulk"?1.07:1);
+  const protein=w*1.8, fat=w*.8;
+  const carbs=Math.max(0,(calories-protein*4-fat*9)/4);
+  const round=n=>Math.round(n);
+  $("macroResult").innerHTML=`<div class="result"><div class="muted">ESTIMATED DAILY TARGET</div><div class="metric">${round(calories)} <small>kcal</small></div><div class="macro"><span>Protein</span><strong>${round(protein)} g</strong></div><div class="macro"><span>Carbohydrates</span><strong>${round(carbs)} g</strong></div><div class="macro"><span>Fat</span><strong>${round(fat)} g</strong></div><p>Calculated maintenance: ${round(maintenance)} kcal/day. This is a starting estimate; track weight and adjust gradually over several weeks.</p></div>`;
+  save("apexTargets",{calories:round(calories),protein:round(protein),carbs:round(carbs),fat:round(fat)});
+  refreshDashboard();
+}
 
-
-const typingText =
-    document.getElementById(
-        "typingText"
-    );
-
-
-const roles = [
-
-    "Backend Developer",
-
-    "Software Developer",
-
-    "Java Developer",
-
-    "Node.js Developer",
-
-    "API Developer"
-
+/* ========== FOOD DATABASE ========== */
+/* Approximate per listed serving; real nutrition varies. */
+const foods=[
+  {name:"Idli",serving:"2 medium",calories:120,protein:4,carbs:25,fat:1},
+  {name:"Plain dosa",serving:"1 medium",calories:170,protein:4,carbs:28,fat:5},
+  {name:"Masala dosa",serving:"1 medium",calories:300,protein:6,carbs:45,fat:10},
+  {name:"Sambar",serving:"1 bowl (200 ml)",calories:100,protein:5,carbs:16,fat:2},
+  {name:"Coconut chutney",serving:"2 tbsp",calories:80,protein:2,carbs:4,fat:7},
+  {name:"Cooked white rice",serving:"1 cup",calories:205,protein:4,carbs:45,fat:.4},
+  {name:"Chapati",serving:"1 medium",calories:110,protein:3.5,carbs:20,fat:2},
+  {name:"Dal",serving:"1 bowl",calories:160,protein:9,carbs:25,fat:3},
+  {name:"Rajma",serving:"1 bowl",calories:220,protein:12,carbs:35,fat:4},
+  {name:"Chole",serving:"1 bowl",calories:240,protein:11,carbs:34,fat:7},
+  {name:"Cooked chickpeas",serving:"100 g",calories:164,protein:9,carbs:27,fat:3},
+  {name:"Paneer",serving:"100 g",calories:265,protein:18,carbs:3,fat:20},
+  {name:"Tofu",serving:"100 g",calories:145,protein:16,carbs:3,fat:9},
+  {name:"Soy chunks (dry)",serving:"50 g dry",calories:173,protein:26,carbs:17,fat:.5},
+  {name:"Boiled egg",serving:"1 large",calories:78,protein:6.3,carbs:.6,fat:5.3},
+  {name:"Chicken breast cooked",serving:"100 g",calories:165,protein:31,carbs:0,fat:3.6},
+  {name:"Fish cooked",serving:"100 g",calories:140,protein:24,carbs:0,fat:4},
+  {name:"Milk",serving:"250 ml",calories:150,protein:8,carbs:12,fat:8},
+  {name:"Plain curd",serving:"150 g",calories:90,protein:5,carbs:7,fat:4},
+  {name:"Banana",serving:"1 medium",calories:105,protein:1.3,carbs:27,fat:.4},
+  {name:"Apple",serving:"1 medium",calories:95,protein:.5,carbs:25,fat:.3},
+  {name:"Oats (dry)",serving:"50 g",calories:190,protein:6.5,carbs:32,fat:3.5},
+  {name:"Peanuts",serving:"30 g",calories:170,protein:7,carbs:5,fat:14},
+  {name:"Almonds",serving:"20 g",calories:116,protein:4.2,carbs:4.3,fat:10},
+  {name:"Whey protein",serving:"1 scoop (30 g)",calories:120,protein:24,carbs:3,fat:2},
+  {name:"Vegetable upma",serving:"1 bowl",calories:230,protein:6,carbs:36,fat:7},
+  {name:"Poha",serving:"1 bowl",calories:250,protein:5,carbs:42,fat:7},
+  {name:"Pongal",serving:"1 bowl",calories:280,protein:8,carbs:40,fat:9},
+  {name:"Peanut butter",serving:"1 tbsp",calories:95,protein:4,carbs:3,fat:8},
+  {name:"Potato (boiled)",serving:"150 g",calories:130,protein:3,carbs:30,fat:.2}
 ];
-
-
-let roleIndex = 0;
-
-let characterIndex = 0;
-
-let deleting = false;
-
-
-function typeRole() {
-
-
-    const currentRole =
-        roles[roleIndex];
-
-
-    if (!deleting) {
-
-
-        typingText.textContent =
-            currentRole.substring(
-                0,
-                characterIndex + 1
-            );
-
-
-        characterIndex++;
-
-
-        if (
-            characterIndex ===
-            currentRole.length
-        ) {
-
-
-            deleting = true;
-
-
-            setTimeout(
-                typeRole,
-                1500
-            );
-
-
-            return;
-
-        }
-
-
-    } else {
-
-
-        typingText.textContent =
-            currentRole.substring(
-                0,
-                characterIndex - 1
-            );
-
-
-        characterIndex--;
-
-
-        if (
-            characterIndex === 0
-        ) {
-
-
-            deleting = false;
-
-
-            roleIndex++;
-
-
-            if (
-                roleIndex >=
-                roles.length
-            ) {
-
-                roleIndex = 0;
-
-            }
-
-        }
-
-    }
-
-
-    const speed =
-        deleting
-            ? 45
-            : 90;
-
-
-    setTimeout(
-        typeRole,
-        speed
-    );
-
+function renderFoods() {
+  const query=($("foodSearch")?.value||"").toLowerCase().trim();
+  const list=foods.filter(f=>f.name.toLowerCase().includes(query));
+  $("foodList").innerHTML=list.length?list.map(f=>`<div class="food-row"><div><strong>${f.name}</strong><small>${f.serving} · ${f.calories} kcal · ${f.protein} g protein</small></div><button class="btn" onclick="addFood('${f.name.replace(/'/g,"\\'")}')">+ Add</button></div>`).join(""):'<div class="empty">No matching foods found.</div>';
+}
+function addFood(name) {
+  const f=foods.find(x=>x.name===name);
+  if(!f)return;
+  updateDaily(day=>day.meals.push({...f,id:Date.now()+Math.random()}));
+  toast(name+" added to food log");
+}
+function removeFood(id) {
+  updateDaily(day=>day.meals=day.meals.filter(f=>f.id!==id));
+}
+function renderMealLog() {
+  const meals=daily()[todayKey()].meals;
+  $("mealLog").innerHTML=meals.length?meals.map(m=>`<div class="food-row"><div><strong>${m.name}</strong><small>${m.serving} · ${m.calories} kcal</small></div><button class="small-btn" onclick="removeFood(${m.id})">Remove</button></div>`).join(""):'<div class="empty">No food logged today. Add foods from the list.</div>';
+}
+function clearMeals() {
+  if(!confirm("Clear today's food log?"))return;
+  updateDaily(day=>day.meals=[]);
+  toast("Food log cleared");
 }
 
-
-typeRole();
-
-
-
-/* =========================
-   SCROLL REVEAL
-========================= */
-
-
-const revealElements =
-    document.querySelectorAll(
-        ".reveal"
-    );
-
-
-function revealOnScroll() {
-
-
-    const windowHeight =
-        window.innerHeight;
-
-
-    revealElements.forEach(
-        element => {
-
-
-            const elementTop =
-                element.getBoundingClientRect()
-                    .top;
-
-
-            const revealPoint =
-                120;
-
-
-            if (
-                elementTop <
-                windowHeight -
-                revealPoint
-            ) {
-
-
-                element.classList.add(
-                    "active"
-                );
-
-            }
-
-
-        }
-    );
-
+/* ========== MEAL IDEAS & SHOPPING ========== */
+function generateMeals() {
+  const diet=$("diet").value, goal=$("mealGoal").value;
+  const size=goal==="cut"?"moderate portions":goal==="bulk"?"larger portions and an extra snack":"balanced portions";
+  const plans={
+    veg:[
+      ["Breakfast","Idli or oats with milk / soy milk"],
+      ["Lunch","Rice or chapati, dal, vegetables and curd / tofu"],
+      ["Snack","Fruit with curd or roasted chana"],
+      ["Dinner","Paneer / tofu / soy chunks with vegetables and chapati"]
+    ],
+    nonveg:[
+      ["Breakfast","Eggs with oats or idli and sambar"],
+      ["Lunch","Rice or chapati, chicken / fish, dal and vegetables"],
+      ["Snack","Curd, fruit or boiled eggs"],
+      ["Dinner","Fish / chicken / eggs with vegetables and rice or chapati"]
+    ],
+    vegan:[
+      ["Breakfast","Oats with fortified soy milk and fruit"],
+      ["Lunch","Rice, dal, vegetables and tofu"],
+      ["Snack","Fruit, roasted chana or peanuts"],
+      ["Dinner","Soy chunks / beans with vegetables and chapati"]
+    ]
+  };
+  $("mealPlan").innerHTML=`<div class="result"><h3>${goal==="cut"?"Fat-loss":goal==="bulk"?"Muscle-gain":"Maintenance"} meal ideas</h3><p>Use ${size}. Adjust portions to your calculated calorie target and hunger.</p>${plans[diet].map(m=>`<div class="food-row"><div><strong>${m[0]}</strong><small>${m[1]}</small></div></div>`).join("")}<p>These are meal ideas, not a nutritionally complete individualized prescription. Adjust for allergies, dietary needs and your calorie / protein targets.</p></div>`;
+}
+function makeShoppingList() {
+  const diet=$("diet").value;
+  const common=["Rice / oats","Chapati flour","Dal and beans","Vegetables","Seasonal fruit","Milk or fortified plant milk","Curd or suitable alternative","Cooking oil and spices"];
+  const extra=diet==="veg"?["Paneer","Tofu","Soy chunks","Roasted chana"]:diet==="vegan"?["Tofu","Soy chunks","Fortified soy milk","Nuts and seeds"]:["Eggs","Chicken or fish","Curd","Oats"];
+  $("shoppingList").innerHTML=`<div class="result"><h3>Shopping checklist</h3>${[...common,...extra].map(x=>`<label><input type="checkbox"> ${x}</label>`).join("")}<button class="btn" onclick="copyShopping()">Copy list</button></div>`;
+}
+function copyShopping() {
+  const text=[...$("shoppingList").querySelectorAll("label")].map(l=>(l.querySelector("input").checked?"[x] ":"[ ] ")+l.textContent.trim()).join("\n");
+  if(navigator.clipboard?.writeText) navigator.clipboard.writeText(text).then(()=>toast("Shopping list copied")).catch(()=>toast("Select and copy the list manually"));
+  else toast("Clipboard unavailable; select and copy the list manually");
 }
 
-
-window.addEventListener(
-    "scroll",
-    revealOnScroll
-);
-
-
-window.addEventListener(
-    "load",
-    revealOnScroll
-);
-
-
-
-/* =========================
-   MOBILE MENU
-========================= */
-
-
-const menuButton =
-    document.getElementById(
-        "menuButton"
-    );
-
-
-const navLinks =
-    document.querySelector(
-        ".nav-links"
-    );
-
-
-menuButton.addEventListener(
-    "click",
-    () => {
-
-
-        navLinks.classList.toggle(
-            "mobile-active"
-        );
-
-
-    }
-);
-
-
-
-/* =========================
-   CLOSE MOBILE MENU
-========================= */
-
-
-document
-    .querySelectorAll(
-        ".nav-links a"
-    )
-    .forEach(
-        link => {
-
-
-            link.addEventListener(
-                "click",
-                () => {
-
-
-                    navLinks.classList.remove(
-                        "mobile-active"
-                    );
-
-
-                }
-            );
-
-
-        }
-    );
-
-
-
-/* =========================
-   CONTACT FORM
-========================= */
-
-
-const contactForm =
-    document.getElementById(
-        "contactForm"
-    );
-
-
-const formMessage =
-    document.getElementById(
-        "formMessage"
-    );
-
-
-contactForm.addEventListener(
-    "submit",
-    function(event) {
-
-
-        event.preventDefault();
-
-
-        const name =
-            document
-                .getElementById("name")
-                .value
-                .trim();
-
-
-        const email =
-            document
-                .getElementById("email")
-                .value
-                .trim();
-
-
-        const message =
-            document
-                .getElementById("message")
-                .value
-                .trim();
-
-
-        if (
-            name === "" ||
-            email === "" ||
-            message === ""
-        ) {
-
-
-            formMessage.textContent =
-                "Please fill in all fields.";
-
-
-            return;
-
-        }
-
-
-        formMessage.textContent =
-            "Thank you! Your message has been submitted.";
-
-
-        contactForm.reset();
-
-
-    }
-);
-
-
-
-/* =========================
-   ACTIVE NAVIGATION
-========================= */
-
-
-const sections =
-    document.querySelectorAll(
-        "section[id]"
-    );
-
-
-const navItems =
-    document.querySelectorAll(
-        ".nav-links a"
-    );
-
-
-window.addEventListener(
-    "scroll",
-    () => {
-
-
-        let currentSection = "";
-
-
-        sections.forEach(
-            section => {
-
-
-                const sectionTop =
-                    section.offsetTop -
-                    150;
-
-
-                const sectionHeight =
-                    section.offsetHeight;
-
-
-                if (
-                    window.scrollY >=
-                    sectionTop &&
-
-                    window.scrollY <
-                    sectionTop +
-                    sectionHeight
-                ) {
-
-
-                    currentSection =
-                        section.getAttribute(
-                            "id"
-                        );
-
-                }
-
-
-            }
-        );
-
-
-        navItems.forEach(
-            link => {
-
-
-                link.style.color =
-                    "#888";
-
-
-                if (
-                    link.getAttribute(
-                        "href"
-                    ) ===
-                    "#" +
-                    currentSection
-                ) {
-
-
-                    link.style.color =
-                        "#fff";
-
-                }
-
-
-            }
-        );
-
-
-    }
-);
-
-
-
-/* =========================
-   PROJECT 3D EFFECT
-========================= */
-
-
-const projectCards =
-    document.querySelectorAll(
-        ".project-card"
-    );
-
-
-projectCards.forEach(
-    card => {
-
-
-        card.addEventListener(
-            "mousemove",
-            event => {
-
-
-                const rect =
-                    card.getBoundingClientRect();
-
-
-                const x =
-                    event.clientX -
-                    rect.left;
-
-
-                const y =
-                    event.clientY -
-                    rect.top;
-
-
-                const rotateX =
-                    ((y / rect.height) -
-                    0.5) * -4;
-
-
-                const rotateY =
-                    ((x / rect.width) -
-                    0.5) * 4;
-
-
-                card.style.transform =
-                    `perspective(800px)
-                     rotateX(${rotateX}deg)
-                     rotateY(${rotateY}deg)
-                     translateY(-5px)`;
-
-
-            }
-        );
-
-
-        card.addEventListener(
-            "mouseleave",
-            () => {
-
-
-                card.style.transform =
-                    "perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0)";
-
-
-            }
-        );
-
-
-    }
-);
-
-
-
-/* =========================
-   SMOOTH SCROLL
-========================= */
-
-
-document
-    .querySelectorAll(
-        'a[href^="#"]'
-    )
-    .forEach(
-        anchor => {
-
-
-            anchor.addEventListener(
-                "click",
-                function(event) {
-
-
-                    const target =
-                        document.querySelector(
-                            this.getAttribute(
-                                "href"
-                            )
-                        );
-
-
-                    if (target) {
-
-
-                        event.preventDefault();
-
-
-                        target.scrollIntoView({
-
-                            behavior:
-                                "smooth"
-
-                        });
-
-
-                    }
-
-
-                }
-            );
-
-
-        }
-    );
-
-
+/* ========== WORKOUT PLANNER ========== */
+const splits={
+  2:[["Full body A","Squat, bench press or push-up, row, Romanian deadlift, plank"],["Full body B","Deadlift variation, overhead press, pulldown, split squat, side plank"]],
+  3:[["Full body A","Squat, bench press, row, Romanian deadlift, plank"],["Full body B","Deadlift variation, overhead press, pulldown, split squat, curl"],["Full body C","Leg press, incline press, cable row, hip thrust, lateral raise"]],
+  4:[["Upper A","Bench press, row, overhead press, pulldown, curl, triceps"],["Lower A","Squat, Romanian deadlift, leg curl, calf raise, core"],["Upper B","Incline press, pulldown, seated row, lateral raise, arms"],["Lower B","Deadlift variation, split squat, hip thrust, leg curl, core"]],
+  5:[["Upper","Bench press, row, pulldown, overhead press, arms"],["Lower","Squat, Romanian deadlift, leg press, calves"],["Push","Chest press, incline press, shoulder press, lateral raise, triceps"],["Pull","Row, pulldown, rear delts, curls"],["Legs + core","Squat variation, hip thrust, leg curl, calves, core"]],
+  6:[["Push A","Bench press, overhead press, incline press, lateral raise, triceps"],["Pull A","Row, pulldown, rear delts, curls"],["Legs A","Squat, Romanian deadlift, leg curl, calves"],["Push B","Incline press, machine press, lateral raise, triceps"],["Pull B","Pulldown, chest-supported row, rear delts, curls"],["Legs B","Leg press, split squat, hip thrust, leg curl, core"]]
+};
+function generateWorkout() {
+  const days=+$("workDays").value, goal=$("workGoal").value, equip=$("equipment").value;
+  const plan=splits[days];
+  const sets=goal==="strength"?"3–5 sets × 3–6 reps":goal==="muscle"?"3–4 sets × 6–12 reps":"2–4 sets × 8–15 reps";
+  const rest=goal==="strength"?"2–5 min":"1–3 min";
+  $("workoutPlan").innerHTML=`<div class="result"><h3>Your ${days}-day plan</h3><p>Working sets: ${sets}. Rest: ${rest}. Warm up before training and adapt the plan to your experience.</p>${plan.map((d,i)=>`<div class="day" style="margin-top:10px"><strong>DAY ${i+1} · ${d[0]}</strong><span>${adaptExercises(d[1],equip)}</span><div style="margin-top:10px"><button class="btn" onclick="logWorkout('${d[0].replace(/'/g,"\\'")}')">Log session completed</button></div></div>`).join("")}<p>Schedule rest days between demanding sessions as needed. Choose loads that allow safe technique and gradual progression.</p></div>`;
+}
+function adaptExercises(text,equip) {
+  if(equip==="gym")return text;
+  if(equip==="home")return text.replace(/bench press/gi,"dumbbell floor press").replace(/cable row/gi,"dumbbell row").replace(/pulldown/gi,"dumbbell pullover").replace(/leg press/gi,"goblet squat");
+  return text.replace(/bench press|chest press|machine press|incline press/gi,"push-up").replace(/row|pulldown/gi,"inverted row (if available)").replace(/squat|leg press/gi,"bodyweight squat").replace(/Romanian deadlift|deadlift variation/gi,"single-leg hip hinge").replace(/cable row/gi,"inverted row (if available)");
+}
+const exercises=[
+  ["Barbell squat","Quads, glutes","Brace your trunk, keep feet planted, lower under control and stand up smoothly."],
+  ["Bench press","Chest, triceps","Keep shoulder blades stable, lower the bar with control and press without bouncing."],
+  ["Dumbbell row","Back, biceps","Hinge at the hips, keep your trunk stable and pull your elbow toward your hip."],
+  ["Romanian deadlift","Hamstrings, glutes","Push hips back, keep weights close to your legs and maintain a neutral spine."],
+  ["Lat pulldown","Lats, upper back","Pull toward the upper chest without swinging or shrugging excessively."],
+  ["Overhead press","Shoulders, triceps","Brace your core and press overhead without excessive lower-back arching."],
+  ["Push-up","Chest, shoulders, triceps","Keep a straight body line, lower under control and use a suitable hand position."],
+  ["Plank","Core","Keep ribs down, squeeze glutes and avoid letting the lower back sag."],
+  ["Split squat","Quads, glutes","Use a comfortable stance, keep the front foot stable and control the descent."],
+  ["Biceps curl","Biceps","Keep elbows relatively still and avoid swinging the torso."],
+  ["Lateral raise","Side delts","Use controlled motion and a comfortable range without momentum."],
+  ["Hip thrust","Glutes","Brace the trunk and finish by extending the hips, not overextending the lower back."]
+];
+function renderExercises() {
+  if(!$("exerciseList"))return;
+  const q=$("exerciseSearch").value.toLowerCase();
+  const arr=exercises.filter(e=>e.join(" ").toLowerCase().includes(q));
+  $("exerciseList").innerHTML=arr.length?arr.map(e=>`<div class="exercise-row"><div><strong>${e[0]}</strong><small>${e[1]} · ${e[2]}</small></div><button class="btn" onclick="logWorkout('${e[0].replace(/'/g,"\\'")}')">Log set</button></div>`).join(""):'<div class="empty">No exercises match that search.</div>';
+}
+function logWorkout(name) {
+  const logs=load("apexWorkouts",[]);
+  logs.unshift({name,date:new Date().toLocaleString(),id:Date.now()});
+  save("apexWorkouts",logs.slice(0,300));
+  renderWorkoutHistory(); toast("Workout entry saved");
+}
+function renderWorkoutHistory() {
+  const logs=load("apexWorkouts",[]);
+  $("workoutHistory").innerHTML=logs.length?logs.map(x=>`<div class="log-row"><div><strong>${x.name}</strong><div class="muted">${x.date}</div></div></div>`).join(""):'<div class="empty">No workouts logged yet.</div>';
+}
+function clearWorkoutLog() {
+  if(confirm("Clear workout history?")){save("apexWorkouts",[]);renderWorkoutHistory();}
+}
+
+/* ========== REST TIMER ========== */
+function showTimer() {
+  const m=Math.floor(timerRemaining/60), s=timerRemaining%60;
+  $("timerDisplay").textContent=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+}
+function startTimer() {
+  if(timerInterval)return;
+  if(timerRemaining<=0)timerRemaining=(+$("restMin").value)*60+(+$("restSec").value);
+  if(timerRemaining<=0)return toast("Choose a timer duration first.");
+  timerInterval=setInterval(()=>{
+    timerRemaining--;showTimer();
+    if(timerRemaining<=0){clearInterval(timerInterval);timerInterval=null;toast("Rest finished. Ready for your next set?");}
+  },1000);
+}
+function pauseTimer(){clearInterval(timerInterval);timerInterval=null;}
+function resetTimer(){pauseTimer();timerRemaining=(+$("restMin").value)*60+(+$("restSec").value);showTimer();}
+$("restMin").addEventListener("change",()=>{if(!timerInterval)resetTimer();});
+$("restSec").addEventListener("change",()=>{if(!timerInterval)resetTimer();});
+
+/* ========== HABITS & HISTORY ========== */
+function addWater(amount) {
+  updateDaily(day=>day.water=Math.min(10000,day.water+amount));
+  toast("Water intake updated");
+}
+function saveWater() {
+  const n=+$("waterInput").value;
+  if(n<0||n>10000)return toast("Enter water between 0 and 10000 ml.");
+  updateDaily(day=>day.water=n);toast("Water saved");
+}
+function saveSleep() {
+  const n=+$("sleepInput").value;
+  if(n<0||n>24)return toast("Enter sleep between 0 and 24 hours.");
+  updateDaily(day=>day.sleep=n);toast("Sleep saved");
+}
+function saveMeasurements() {
+  const weight=+$("trackWeight").value, waist=+$("trackWaist").value;
+  const bmi=$("trackBMI").value===""?null:+$("trackBMI").value;
+  const bf=$("trackBF").value===""?null:+$("trackBF").value;
+  if(!(weight>0&&weight<=500))return toast("Enter a valid weight.");
+  if(waist<0||waist>300)return toast("Check the waist measurement.");
+  const hist=load("apexMeasurements",[]);
+  hist.unshift({date:new Date().toLocaleDateString(),weight,waist:waist||null,bmi,bf});
+  save("apexMeasurements",hist.slice(0,500));renderHistory();toast("Measurements saved");
+}
+function renderHistory() {
+  const hist=load("apexMeasurements",[]);
+  $("measurementHistory").innerHTML=hist.length?hist.map(x=>`<div class="log-row"><div><strong>${x.date}</strong><div class="muted">Weight ${x.weight} kg · Waist ${x.waist??"—"} cm · BMI ${x.bmi??"—"} · Body fat ${x.bf==null?"—":x.bf+"%"}</div></div></div>`).join(""):'<div class="empty">Your measurements will appear here.</div>';
+}
+
+/* ========== PRIVATE PROGRESS PHOTOS ========== */
+function renderPhotos() {
+  const photos=load("apexPhotos",[]);
+  $("photoGallery").innerHTML=photos.map((p,i)=>`<div class="card"><img src="${p.data}" alt="Progress photo ${i+1}" style="width:100%;border-radius:9px;aspect-ratio:3/4;object-fit:cover"><p>${p.date}</p><button class="btn" onclick="deletePhoto(${i})">Delete photo</button></div>`).join("")||'<div class="empty">No photos saved.</div>';
+}
+function savePhoto() {
+  const file=$("photoInput").files[0];
+  if(!file)return toast("Choose an image first.");
+  if(!file.type.startsWith("image/"))return toast("Please select an image.");
+  if(file.size>2*1024*1024)return toast("Choose an image under 2 MB.");
+  const reader=new FileReader();
+  reader.onload=()=>{
+    const img=new Image();
+    img.onload=()=>{
+      const canvas=document.createElement("canvas");
+      const scale=Math.min(1,800/img.width,1000/img.height);
+      canvas.width=Math.round(img.width*scale);canvas.height=Math.round(img.height*scale);
+      canvas.getContext("2d").drawImage(img,0,0,canvas.width,canvas.height);
+      const data=canvas.toDataURL("image/jpeg",.78);
+      const photos=load("apexPhotos",[]);
+      photos.unshift({data,date:new Date().toLocaleDateString()});
+      if(photos.length>12)photos.length=12;
+      try { save("apexPhotos",photos);renderPhotos();toast("Photo saved on this browser"); }
+      catch { toast("Could not save photo. Browser storage may be full."); }
+    };
+    img.src=reader.result;
+  };
+  reader.readAsDataURL(file);
+}
+function deletePhoto(i) {
+  const photos=load("apexPhotos",[]);
+  photos.splice(i,1);save("apexPhotos",photos);renderPhotos();
+}
+function exportData() {
+  const data={
+    daily:load("apexDaily",{}),
+    targets:load("apexTargets",{}),
+    measurements:load("apexMeasurements",[]),
+    workouts:load("apexWorkouts",[])
+  };
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");a.href=url;a.download="apex-fitness-data.json";a.click();
+  URL.revokeObjectURL(url);
+}
+
+/* ========== RULE-BASED COACH DEMO ========== */
+function coachReply(q) {
+  q=q.toLowerCase();
+  if(q.includes("protein"))return "For many healthy adults who lift weights, roughly 1.4–2.0 g protein per kg body weight per day is a useful range. Distribute protein across meals and use foods you enjoy. Needs differ by person.";
+  if(q.includes("bulk")||q.includes("gain muscle"))return "Start with progressive resistance training, adequate protein and a small calorie surplus (often around 5–10%). Track average weight and gym performance for a few weeks, then adjust.";
+  if(q.includes("cut")||q.includes("fat loss")||q.includes("lose fat"))return "A moderate calorie deficit, resistance training, sufficient protein, sleep and consistency are the basics. Avoid crash diets; monitor your trend rather than reacting to a single day's weight.";
+  if(q.includes("recomp")||q.includes("recomposition"))return "Body recomposition means gradually gaining muscle while losing fat. It may be more achievable for beginners or people returning to training. Train progressively, eat adequate protein and start near maintenance.";
+  if(q.includes("split")||q.includes("workout"))return "A 3-day full-body split is a strong starting option for many beginners. Four days can work well with upper/lower training. The best split is one you can recover from and perform consistently.";
+  if(q.includes("creatine")||q.includes("supplement"))return "Creatine monohydrate is one of the better-studied sports supplements. Protein powder is optional convenience. Be cautious with fat burners and hormone boosters. Check with a healthcare professional about personal contraindications.";
+  if(q.includes("sleep")||q.includes("recovery"))return "Aim for consistent sleep; most adults need about 7–9 hours. Manage training volume, eat enough and take rest days when needed.";
+  if(q.includes("calorie")||q.includes("calories")||q.includes("macro"))return "Your calorie estimate is a starting point, not a precise measurement. Track intake and average body weight for 2–3 weeks, then adjust gradually based on your goal and progress.";
+  if(q.includes("bmi")||q.includes("body fat"))return "BMI is a height-to-weight screening tool, not a direct measure of body fat. Circumference-based body-fat estimates can also be inaccurate. Track several indicators, including strength, waist and longer-term trends.";
+  return "I can offer general guidance about protein, calories, cutting, bulking, recomp, supplements, workouts and recovery. Try asking a more specific question. This demo uses predefined answers, not live AI.";
+}
+function appendChat(text,type) {
+  const div=document.createElement("div");
+  div.className="bubble "+type;
+  div.textContent=text;
+  $("chatMessages").appendChild(div);
+  $("chatMessages").scrollTop=$("chatMessages").scrollHeight;
+}
+function askCoach(event) {
+  event.preventDefault();
+  const input=$("chatInput"), q=input.value.trim();
+  if(!q)return;
+  appendChat(q,"user");input.value="";
+  appendChat(coachReply(q),"bot");
+}
+function quickAsk(q) {
+  appendChat(q,"user");appendChat(coachReply(q),"bot");
+}
+
+/* ========== STARTUP ========== */
+$("today").textContent=new Date().toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric"});
+refreshDashboard();
+renderFoods();
+renderExercises();
+renderWorkoutHistory();
+renderHistory();
+renderPhotos();
+showTimer();
 </script>
-
-
 </body>
 </html>
